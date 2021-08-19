@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartItemContext } from './CartItemContext';
 
-const item = (props) => {
+const Item = (props) => {
+    const [cartItem, setCartItem] = useContext(CartItemContext);
+
+    const addToCart = (e) => {
+        console.log(e.target.dataset);
+        setCartItem([...cartItem, {name: e.target.dataset.name, id: e.target.id}]);
+    }
     return (
         <div className="col pb-2" id="top">
             <div className="itemimg">
@@ -17,7 +24,7 @@ const item = (props) => {
                         <a href="./product.html" title="See Product in detail">
                             <button className="btn btn-info" id="cartButton1" >Details</button>
                         </a>
-                        <button className="btn btn-warning" id={'cartButton'+props.pid} data-bs-pid={props.pid} >Add to cart</button>
+                        <button className="btn btn-warning" key={props.pid} id={'cartButton'+props.pid} data-name={props.itemName} data-bs-pid={props.pid} onClick={addToCart}>Add to cart</button>
                     </div>
                 </div>
             </div>
@@ -39,10 +46,10 @@ const item = (props) => {
                 <a href="./product.html" title="See Product in detail">
                     <button className="btn btn-info Mbutton" id="cartButton1" >Details</button>
                 </a>
-                <button className="btn btn-warning Mbutton" id="cartButton1" href="">Add to cart</button>
+                <button className="btn btn-warning Mbutton" id={'cartButton'+props.pid} data-name={props.itemName} onClick={addToCart}>Add to cart</button>
             </div>
         </div>
     )
 }
 
-export default item
+export default Item

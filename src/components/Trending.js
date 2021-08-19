@@ -1,11 +1,22 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { ItemContext } from './itemContext';
+import { CartItemContext } from './CartItemContext';
 
 const Trending = () => {
     const [trending] = useContext(ItemContext);
+    const [cartItem, setCartItem] = useContext(CartItemContext);
+
+    const addToCart = (e) => {
+        console.log(e.target.id);
+        setCartItem([...cartItem, {name: e.target.dataset.name, id: e.target.id}]);
+    }
+
+    useEffect(() => {
+            console.log(trending);    
+    }, [trending]);
 
     const PrevButton = (props)=> {
         const {onClick} = props;
@@ -85,7 +96,7 @@ const Trending = () => {
             ]}
         >
                 {trending.map(t=>(
-                    <div className="col pb-2" id="top">
+                    <div className="col pb-2" id="top" key={t.sno}>
                         <div className="itemimg">
                             <img className="pimg" src={t.profileURL} alt="" height="80%" width="100%" />
                         </div>
@@ -100,7 +111,7 @@ const Trending = () => {
                                     <a href="./product.html" title="See Product in detail">
                                         <button className="btn btn-info" id="cartButton1" >Details</button>
                                     </a>
-                                    <button className="btn btn-warning" id={'cartButton'+t.pid} data-bs-pid={t.pid} >Add to cart</button>
+                                    <button className="btn btn-warning" key={t.sno} id={`cartButton${t.sno}`} data-name={t.itemName} data-bs-pid={t.pid} onClick={addToCart} >Add to cart</button>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +133,7 @@ const Trending = () => {
                             <a href="./product.html" title="See Product in detail">
                                 <button className="btn btn-info Mbutton" id="cartButton1" >Details</button>
                             </a>
-                            <button className="btn btn-warning Mbutton" id="cartButton1" href="">Add to cart</button>
+                            <button className="btn btn-warning Mbutton" key={t.sno} id={`cartButton${t.sno}`} data-name={t.itemName} data-bs-pid={t.pid} onClick={addToCart}  >Add to cart</button>
                         </div>
                         
                     </div>

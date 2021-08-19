@@ -8,20 +8,24 @@ import AddItems from "./components/addItems";
 import { ItemProvider, TrendingProvider } from "./components/itemContext";
 import './App.css';
 import Trending from "./components/Trending";
+import { CartItemProvider } from "./components/CartItemContext";
 
 function App() {
   return (
     <div>
+      <CartItemProvider>
       <Header />
       <Carousel />
       <Headtitle title="This is head title."/>
-      <TrendingProvider>
-        <Trending />
-      </TrendingProvider>
-      <ItemProvider>
-      <Items />
-      <AddItems />
-      </ItemProvider>
+        <TrendingProvider>
+          <Trending />
+        </TrendingProvider>
+        
+        <ItemProvider>
+          <Items />
+          <AddItems />
+        </ItemProvider>
+      </CartItemProvider>
       <Footer />
     </div>
   );

@@ -40,13 +40,13 @@ const carousel = () => {
                 }}
         >
             <div className="">
-               <img className="" width="100%" height="170px" src="img/ad1.jpg" aria-hidden="true" focusable="false" alt="" />
+               <img className="" width="100%" height="170px" src="./img/ad1.jpg" aria-hidden="true" focusable="false" alt="" />
             </div>
             <div className="">
-               <img className="" width="100%" height="170px" src="img/ad2.jpg" aria-hidden="true" focusable="false" alt="" />
+               <img className="" width="100%" height="170px" src="./img/ad2.jpg" aria-hidden="true" focusable="false" alt="" />
             </div>
             <div className="">
-               <img className="" width="100%" height="170px" src="img/ad3.jpg" aria-hidden="true" focusable="false" alt="" />
+               <img className="" width="100%" height="170px" src="D:\dcmnt\Web development\projects\React\shopping-react\public\img\ad3.jpg" aria-hidden="true" focusable="false" alt="" />
             </div>
            
 

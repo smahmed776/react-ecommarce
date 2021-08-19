@@ -14,7 +14,7 @@ export const ItemProvider = props => {
     const ItemRequest = async () => {
         const request = await fetch('./items.json');
         const response = await request.json();
-        console.log(response);
+        // console.log(response);
         setItems(response);
     }
     
@@ -45,3 +45,4 @@ export const TrendingProvider = props => {
         </ItemContext.Provider>
     )
 }
+

@@ -1,4 +1,5 @@
 import React from 'react';
+import Cart from './Cart';
 import './header.css'
 
 const header = () => {
@@ -49,16 +50,7 @@ const header = () => {
                             <a className="nav-link px-2" href="#" data-bs-target="#mContainer" data-bs-toggle="modal">Login</a>
                         </li>
                         <li className="nav-item navitem dropdown mcart" id="mcart">
-                            <a className="nav-link dropdown-toggle px-2 d-flex justify-content-center" data-bs-toggle="dropdown" id="dropdown1" aria-expanded="false" style={{ padding: "4px 8px" }} href="#">
-                                <i className="bi bi-cart3" style={{ fontSize: "21px", paddingRight: "5px", WebkitBoxPack: "start", WebkitJustifyContent: "flex-start", msFlexPack: "start", justifyContent: "flex-start" }}></i>
-                                <span className="bage bg-danger rounded-pill cart" id="cartPill">0</span>
-                            </a>
-                            <ul className="dropdown-menu" style={{ right: "0", left: "auto", padding: "5px 0 28px 0" }} aria-labelledby="dropdown1">
-                                <li id>
-                                    <p className="dropdown-item" id="cartDropDown">Your cart is empty! Please add some items to cart to procced.</p>
-                                    <a href="./cart.html" style={{ "visibility": "hidden", paddingBottom: "10px" }} id="cartLink">ক্রয় নিশ্চিত করুন &gt;&gt;</a>
-                                </li>
-                            </ul>
+                          <Cart />
                         </li>
                     </ul>
                 </div>

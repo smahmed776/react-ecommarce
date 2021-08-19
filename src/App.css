@@ -621,3 +621,17 @@ hr {
 
 
 }
+
+.cartdrop{
+	max-height: 80vh;
+	overflow-y: scroll;
+}
+
+.cartshake{
+	animation: shakecart .1s 8;
+}
+
+@keyframes shakecart {
+	from{transform: translateX(-3px);}
+	to{transform: translateX(3px);}
+}

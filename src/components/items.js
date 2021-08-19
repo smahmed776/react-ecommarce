@@ -5,6 +5,7 @@ import Item from './item';
 
 const Items = () => {
     const [items] = useContext(ItemContext);
+    console.log(items);
     return (
     <div className="container electronics my-4 pe-0"  id="">	  
 		<h2 className="pb-0 text-center text-bold" style={{"border-bottom" : "1px solid green", "display" : "inline"}}> MOBILE PHONE AND ELECTRONICS</h2>

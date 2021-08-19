@@ -39,7 +39,7 @@ const Trending = () => {
 	
         
         <Slider className="py-4 trending" 
-            
+            autoplay
             infinite 
             nextArrow= {<NextButton />}
             prevArrow= {<PrevButton />}

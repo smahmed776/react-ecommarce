@@ -11,7 +11,7 @@ const Trending = () => {
 
     const addToCart = (e) => {
         console.log(e.target.id);
-        setCartItem([...cartItem, {name: e.target.dataset.name, id: e.target.id}]);
+        setCartItem([...cartItem, {name: e.target.dataset.name, profileURL: e.target.dataset.src, id: e.target.id}]);
     }
 
     useEffect(() => {
@@ -111,7 +111,11 @@ const Trending = () => {
                                     <a href="./product.html" title="See Product in detail">
                                         <button className="btn btn-info" id="cartButton1" >Details</button>
                                     </a>
-                                    <button className="btn btn-warning" key={t.sno} id={`cartButton${t.sno}`} data-name={t.itemName} data-bs-pid={t.pid} onClick={addToCart} >Add to cart</button>
+                                    <button className="btn btn-warning" key={t.sno} id={`cartButton${t.sno}`}
+                                     data-name={t.itemName}
+                                     data-src={t.profileURL} 
+                                     data-bs-pid={t.pid}
+                                       onClick={addToCart} >Add to cart</button>
                                 </div>
                             </div>
                         </div>
@@ -133,7 +137,11 @@ const Trending = () => {
                             <a href="./product.html" title="See Product in detail">
                                 <button className="btn btn-info Mbutton" id="cartButton1" >Details</button>
                             </a>
-                            <button className="btn btn-warning Mbutton" key={t.sno} id={`cartButton${t.sno}`} data-name={t.itemName} data-bs-pid={t.pid} onClick={addToCart}  >Add to cart</button>
+                            <button className="btn btn-warning Mbutton" key={t.sno} id={`cartButton${t.sno}`}
+                             data-name={t.itemName} 
+                             data-src={t.profileURL}
+                             data-bs-pid={t.pid} 
+                             onClick={addToCart}  >Add to cart</button>
                         </div>
                         
                     </div>

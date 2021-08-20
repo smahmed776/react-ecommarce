@@ -50,7 +50,7 @@ const header = () => {
                             <a className="nav-link px-2" href="#" data-bs-target="#mContainer" data-bs-toggle="modal">Login</a>
                         </li>
                         <li className="nav-item navitem dropdown mcart" id="mcart">
-                          <Cart />
+                          <Cart mobile={false}/>
                         </li>
                     </ul>
                 </div>
@@ -58,7 +58,9 @@ const header = () => {
         </div>
 
         <div>
-  {/* for mobile display  */}
+  {/* ==========================================================================
+       for mobile display
+  ==============================================================================  */}
   <div className="header container-fluid navbar w-100 fixed-bottom" id="mobilenav">
     <ul className="navbar-nav navul2">
       <li className="nav-item navitem">
@@ -68,12 +70,7 @@ const header = () => {
         <a className="nav-link px-2" href="#" ><span className="bi bi-search" /> Search</a>
       </li>
       <li className="nav-item navitem dropdown">
-        <a className="nav-link dropdown-toggle px-2 d-flex justify-content-center show" data-bs-toggle="dropdown" id="dropdown2" aria-expanded="true" style={{"padding":"4px 8px"}} href="#">
-          <span className="bi bi-cart4" style={{"font-size":"21px","padding-right":"5px","-webkit-box-pack":"start","-webkit-justify-content":"flex-start","-ms-flex-pack":"start","justify-content":"flex-start","position":"relative"}}>
-            <span className="bage bg-danger rounded-pill cart" style={{"position":"absolute","top":"0","right":"0"}} id="cartPill2">0</span>
-          </span>
-          <span style={{"margin-top":"-8px"}}>Cart</span>
-        </a>
+        <Cart mobile={true}/>
       </li>
       <li className="nav-item navitem">
         <a className="nav-link px-2" href="#" ><span className="bi bi-person-circle" /> Profile</a>

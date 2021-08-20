@@ -1,35 +1,92 @@
 import React, { useRef, useContext, useEffect } from 'react'
 import { CartItemContext } from './CartItemContext'
 
-const Cart = () => {
+const Cart = (props) => {
     const [cartItem] = useContext(CartItemContext);
     console.log(cartItem);
-    const cartshake = useRef(null)
+    const cartshake = useRef(null);
+    const toast = useRef(null);
+    const toastinnertext = (number) =>{
+        let innerText = "";
+        if(cartItem.length === 1){
+            innerText = number + " " + "item added to cart."
+        } else {
+            innerText = "total " + number + " items added to cart."
+        }
+        return innerText;
+    }
     useEffect(() => {
-        const reference = cartshake.current;
-        (cartItem.length? reference.classList.add("cartshake"): reference.classList.remove('cartshake'));
-        setTimeout(()=>{
-            reference.classList.remove('cartshake');
-            console.log('timout working!!');
-        }, 800)
+        const toastText = toast.current;
+        if(cartItem.length){
+            toastText.className = "showtoast";
+            setTimeout(()=>{
+                toastText.className= toastText.className.replace("showtoast", "");
+                console.log('timout working!!');
+            }, 800)
+        } else {
+            // toastText.className.replace("show", "");
+        };
+
+        if (props.mobile){
+
+        } else {
+
+            const reference = cartshake.current;
+            if(cartItem.length){
+                reference.classList.add("cartshake");
+                toastText.className = "showtoast";
+            } else {
+                reference.classList.remove('cartshake');
+                // toastText.className.replace("show", "");
+            } 
+            setTimeout(()=>{
+                reference.classList.remove('cartshake');
+                toastText.className= toastText.className.replace("showtoast", "");
+                console.log('timout working!!');
+            }, 800)
+        }
         console.log("cartshake added!!");
-    }, [cartItem])
+    }, [cartItem]);
+
     return (
         <div>
+            <div id="snackbar" ref={toast}>{toastinnertext(cartItem.length)}</div>
+            {(props.mobile?
+
+
+                    <a className="nav-link dropdown-toggle px-2 d-flex justify-content-center show" data-bs-toggle="dropdown" id="dropdown2" aria-expanded="true" style={{"padding":"4px 8px"}} href="#">
+          <span className="bi bi-cart4" style={{"font-size":"21px","padding-right":"5px","-webkit-box-pack":"start","-webkit-justify-content":"flex-start","-ms-flex-pack":"start","justify-content":"flex-start","position":"relative"}}>
+            <span className="bage bg-danger rounded-pill cart" style={{"position":"absolute","top":"0","right":"0"}} id="cartPill2">{cartItem.length}</span>
+          </span>
+          <span style={{"margin-top":"-8px"}}>Cart</span>
+        </a>
+
+
+
+            :
+
+
+
+            <>
             <a ref={cartshake} className="nav-link dropdown-toggle px-2 d-flex justify-content-center" data-bs-toggle="dropdown" id="dropdown1" aria-expanded="false" style={{ padding: "4px 8px" }} href="#">
                                 <i className= "bi bi-cart3 "  style={{ fontSize: "21px", paddingRight: "5px", WebkitBoxPack: "start", WebkitJustifyContent: "flex-start", msFlexPack: "start", justifyContent: "flex-start" }}></i>
                                 <span className={cartItem.length? "bage bg-primary rounded-pill cart": "bage bg-danger rounded-pill cart"} id="cartPill">
                                     {cartItem.length}
                                 </span>
                             </a>
-                            <ul className="dropdown-menu" style={{ right: "0", left: "auto", padding: "5px 0 28px 0" }} aria-labelledby="dropdown1">
+                            <ul className="dropdown-menu cartdropdown"  aria-labelledby="dropdown1">
                                 <li id>
                                     {cartItem.length?
                                     <div>
-                                        <p className="dropdown-item" id="cartDropDown">{`You have ${cartItem.length} items in your cart.`}</p>
+                                        <h4 className="dropdown-item text-primary" id="cartDropDown">{`You have ${cartItem.length} items in your cart.`}</h4>
                                         <div className="cartdrop">
                                             {cartItem.map(c => (
-                                                <h4 key={c.id}>{c.name}</h4>
+                                                <div className="p-2 mt-2" key={c.id}>
+                                                    <h5 key={c.id}>{c.name}</h5>
+                                                    <img className="mb-2" src={c.profileURL} alt={c.name} height="55px" width="55px" />
+                                                    
+                                                    <hr />
+                                                </div>
                                             ))}
                                         </div>
                                         <a href="./cart.html" style={{ paddingBottom: "10px" }} id="cartLink">ক্রয় নিশ্চিত করুন &gt;&gt;</a>
@@ -39,6 +96,8 @@ const Cart = () => {
                                 }
                                 </li>
                             </ul>
+            </>
+            )}
         </div>
     )
 }

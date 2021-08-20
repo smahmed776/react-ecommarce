@@ -6,7 +6,7 @@ const Item = (props) => {
 
     const addToCart = (e) => {
         console.log(e.target.dataset);
-        setCartItem([...cartItem, {name: e.target.dataset.name, id: e.target.id}]);
+        setCartItem([...cartItem, {name: e.target.dataset.name, profileURL: e.target.dataset.src, id: e.target.id}]);
     }
     return (
         <div className="col pb-2" id="top">
@@ -24,7 +24,11 @@ const Item = (props) => {
                         <a href="./product.html" title="See Product in detail">
                             <button className="btn btn-info" id="cartButton1" >Details</button>
                         </a>
-                        <button className="btn btn-warning" key={props.pid} id={'cartButton'+props.pid} data-name={props.itemName} data-bs-pid={props.pid} onClick={addToCart}>Add to cart</button>
+                        <button className="btn btn-warning" key={props.pid} id={'cartButton'+props.pid}
+                         data-name={props.itemName} 
+                         data-src={props.profileURL}
+                         data-bs-pid={props.pid}
+                          onClick={addToCart}>Add to cart</button>
                     </div>
                 </div>
             </div>
@@ -46,7 +50,12 @@ const Item = (props) => {
                 <a href="./product.html" title="See Product in detail">
                     <button className="btn btn-info Mbutton" id="cartButton1" >Details</button>
                 </a>
-                <button className="btn btn-warning Mbutton" id={'cartButton'+props.pid} data-name={props.itemName} onClick={addToCart}>Add to cart</button>
+                <button className="btn btn-warning Mbutton" id={'cartButton'+props.pid}
+                 data-name={props.itemName}
+                 data-src={props.profileURL}
+                 data-bs-pid={props.pid}
+
+                 onClick={addToCart}>Add to cart</button>
             </div>
         </div>
     )

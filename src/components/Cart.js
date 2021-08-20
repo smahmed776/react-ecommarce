@@ -5,13 +5,14 @@ const Cart = (props) => {
     const [cartItem] = useContext(CartItemContext);
     console.log(cartItem);
     const cartshake = useRef(null);
+    const mcartshake = useRef(null);
     const toast = useRef(null);
     const toastinnertext = (number) =>{
         let innerText = "";
         if(cartItem.length === 1){
-            innerText = number + " " + "item added to cart."
+            innerText = `${number} item added to cart.`
         } else {
-            innerText = "total " + number + " items added to cart."
+            innerText = `total ${number} items added to cart.`
         }
         return innerText;
     }
@@ -28,7 +29,19 @@ const Cart = (props) => {
         };
 
         if (props.mobile){
-
+            const mreference = mcartshake.current;
+            if(cartItem.length){
+                mreference.classList.add("cartshake");
+                toastText.className = "showtoast";
+            } else {
+                mreference.classList.remove('cartshake');
+                // toastText.className.replace("show", "");
+            } 
+            setTimeout(()=>{
+                mreference.classList.remove('cartshake');
+                toastText.className= toastText.className.replace("showtoast", "");
+                console.log('timout working!!');
+            }, 800)
         } else {
 
             const reference = cartshake.current;
@@ -49,17 +62,40 @@ const Cart = (props) => {
     }, [cartItem]);
 
     return (
-        <div>
+        <>
             <div id="snackbar" ref={toast}>{toastinnertext(cartItem.length)}</div>
             {(props.mobile?
+            <>
+                <a ref={mcartshake} className="btn nav-link dropdown-toggle px-2 d-flex justify-content-center text-dark" 
+                  data-bs-toggle="dropdown" 
+                  id="dropdown2" 
+                  aria-expanded="false" 
+                  style={{"padding":"4px 8px"}} 
+                  data-bs-auto-close="outside">
+                    <span className="bi bi-cart4" style={{"font-size":"21px","padding-right":"5px","-webkit-box-pack":"start","-webkit-justify-content":"flex-start","-ms-flex-pack":"start","justify-content":"flex-start","position":"relative"}}>
+                        <span className={cartItem.length? "bage bg-primary rounded-pill cart": "bage bg-danger rounded-pill cart"}   style={{"position":"absolute","top":"0","right":"0"}} id="cartPill2">{cartItem.length}</span>
+                    </span>
+                    <span style={{"margin-top":"-8px"}}>Cart</span>
+                </a>
+                <ul className="dropdown-menu mobilecart" aria-labelledby="dropdown2">
+                    {cartItem.length?
+                      <li className="dropdown=item">
+                          <h4 className="text-primary">{`You have ${cartItem.length} items in your cart.`}</h4>
+                          {cartItem.map(c => (
+                              <div className="p-2 mt-2" key={c.id}>
+                                <h5 key={c.id}>{c.name}</h5>
+                                <img className="mb-2" src={c.profileURL} alt={c.name} height="55px" width="55px" />
+                              
+                                <hr />
+                          </div>
+                          ))}
+                      </li>
+                      :
+                      <p className="dropdown-item" id="cartDropDown">Your cart is empty! Please add some items to cart to procced.</p>
+                    }
+                </ul>
+            </>
 
-
-                    <a className="nav-link dropdown-toggle px-2 d-flex justify-content-center show" data-bs-toggle="dropdown" id="dropdown2" aria-expanded="true" style={{"padding":"4px 8px"}} href="#">
-          <span className="bi bi-cart4" style={{"font-size":"21px","padding-right":"5px","-webkit-box-pack":"start","-webkit-justify-content":"flex-start","-ms-flex-pack":"start","justify-content":"flex-start","position":"relative"}}>
-            <span className="bage bg-danger rounded-pill cart" style={{"position":"absolute","top":"0","right":"0"}} id="cartPill2">{cartItem.length}</span>
-          </span>
-          <span style={{"margin-top":"-8px"}}>Cart</span>
-        </a>
 
 
 
@@ -68,7 +104,7 @@ const Cart = (props) => {
 
 
             <>
-            <a ref={cartshake} className="nav-link dropdown-toggle px-2 d-flex justify-content-center" data-bs-toggle="dropdown" id="dropdown1" aria-expanded="false" style={{ padding: "4px 8px" }} href="#">
+            <a ref={cartshake} className="nav-link dropdown-toggle px-2 d-flex justify-content-center" data-bs-toggle="dropdown" id="dropdown1" data-bs-auto-close="false" aria-expanded="false" style={{ padding: "4px 8px" }} href="#">
                                 <i className= "bi bi-cart3 "  style={{ fontSize: "21px", paddingRight: "5px", WebkitBoxPack: "start", WebkitJustifyContent: "flex-start", msFlexPack: "start", justifyContent: "flex-start" }}></i>
                                 <span className={cartItem.length? "bage bg-primary rounded-pill cart": "bage bg-danger rounded-pill cart"} id="cartPill">
                                     {cartItem.length}
@@ -98,7 +134,7 @@ const Cart = (props) => {
                             </ul>
             </>
             )}
-        </div>
+        </>
     )
 }
 

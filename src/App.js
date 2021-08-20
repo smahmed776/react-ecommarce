@@ -1,11 +1,11 @@
 import React from "react";
 import Header from "./components/header";
 import Headtitle from './components/headtitle';
-import Items from './components/items';
+import { Items, RecipeItems} from './components/items';
 import Carousel from "./components/carousel";
 import Footer from "./components/footer";
-import AddItems from "./components/addItems";
-import { ItemProvider, TrendingProvider } from "./components/itemContext";
+// import AddItems from "./components/addItems";
+import { AmazoneProvider, ItemProvider, RecipeProvider, TrendingProvider } from "./components/itemContext";
 import './App.css';
 import Trending from "./components/Trending";
 import { CartItemProvider } from "./components/CartItemContext";
@@ -23,8 +23,11 @@ function App() {
         
         <ItemProvider>
           <Items />
-          <AddItems />
         </ItemProvider>
+          <RecipeProvider>
+            <RecipeItems />
+          </RecipeProvider>
+          {/* <AddItems /> */}
       </CartItemProvider>
       <Footer />
     </div>

@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Cart from './Cart';
+import { CartItemContext } from './CartItemContext';
 import './header.css'
 
-const header = () => {
+const Header = () => {
+
+  const [cartItem] = useContext(CartItemContext);
+
+
+
+
     // header change after scroll
     return (
     <>
@@ -62,27 +69,44 @@ const header = () => {
        for mobile display
   ==============================================================================  */}
   <div className="header container-fluid navbar w-100 fixed-bottom" id="mobilenav">
-    <ul className="navbar-nav navul2">
+    <ul className="navbar-nav navbar-expand-sm navul2">
       <li className="nav-item navitem">
         <a className="nav-link px-2" href><span className="bi bi-house-door" /> Home</a>
       </li>
+
       <li className="nav-item navitem">
         <a className="nav-link px-2" href="#" ><span className="bi bi-search" /> Search</a>
       </li>
-      <li className="nav-item navitem dropdown">
+
+      <li className="nav-item navitem btn-group dropup">
         <Cart mobile={true}/>
       </li>
-      <li className="nav-item navitem">
-        <a className="nav-link px-2" href="#" ><span className="bi bi-person-circle" /> Profile</a>
-      </li>
-      <div id="profile" className="d-none justify-content-between" style={{"width":"100%","position":"absolute","bottom":"-45px","left":"0","padding":"5px 35px 3px 35px","-webkit-transition":"bottom .6s ease","transition":"bottom .6s ease"}}>
-        <div className="shadow bg-light" style={{"height":"45px","padding-top":"10px","width":"40%","-webkit-text-align":"center","text-align":"center"}}>
+
+      <li className="nav-item navitem btn-group dropup">
+        <a className=" nav-link btn dropdown-toggle px-2 text-dark" 
+          data-bs-toggle="dropdown" 
+          id="profile"
+          aria-expanded="false"
+          data-bs-auto-close="outside"><span className="bi bi-person-circle" ></span> Profile
+        </a>
+      
+      <ul className="dropdown-menu justify-content-between" 
+       aria-aria-labelledby="profile"
+       style={{"width":"100%","position":"absolute","left":"0","-webkit-transition":"bottom .6s ease","transition":"bottom .6s ease"}}>
+        <li>
+        <div className="dropdown-item  bg-light" style={{"height":"45px","padding-top":"10px","width":"40%","-webkit-text-align":"center","text-align":"center"}}>
           <a style={{"-webkit-text-decoration":"none","text-decoration":"none","-webkit-text-align":"center","text-align":"center","padding":"10px 12px 10px 12px","width":"100%"}} href="#" data-bs-target="#mContainer" data-bs-toggle="modal">Login</a>
         </div>
-        <div className="shadow bg-light" style={{"height":"45px","padding-top":"10px","width":"40%","-webkit-text-align":"center","text-align":"center"}}>
+        </li>
+        <hr />
+        <li>
+        <div className="dropdown-item  bg-light" style={{"height":"45px","padding-top":"10px","width":"40%","-webkit-text-align":"center","text-align":"center"}}>
           <a style={{"-webkit-text-decoration":"none","text-decoration":"none","-webkit-text-align":"center","text-align":"center","padding":"10px 12px 10px 12px","width":"100%"}} href="#" data-bs-target="#lcontainer2" data-bs-toggle="modal">Register</a>
         </div>
-      </div>
+        </li>
+      </ul>
+      </li>
+
       <li className="nav-item navitem" id="btnnav">
         <button className="navbar-toggler navbar-light btntoggles" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
           <div className style={{"display":"inline-block","cursor":"pointer"}} onclick="myFunction(this)">
@@ -222,4 +246,4 @@ const header = () => {
     </>
                 )}
 
-export default header;
+export default Header;

@@ -2,6 +2,8 @@ import React, {useState, useEffect, createContext} from 'react'
 
 
 export const ItemContext = createContext();
+export const RecipesItemContext = createContext();
+
 
 
 
@@ -12,10 +14,10 @@ export const ItemProvider = props => {
     }, []); 
     
     const ItemRequest = async () => {
-        const request = await fetch('./items.json');
+        const request = await fetch("https://api.edamam.com/api/food-database/v2/parser?app_id=99d68360&app_key=419e582f891567c617f0192b41ac1708&ingr=chicken&nutrition-type=cooking");
         const response = await request.json();
-        // console.log(response);
-        setItems(response);
+        console.log(response.hints);
+        setItems(response.hints);
     }
     
     const [items, setItems] = useState([]);
@@ -24,6 +26,28 @@ export const ItemProvider = props => {
         <ItemContext.Provider value={[items, setItems]}>
             {props.children}
         </ItemContext.Provider>
+    )
+}
+
+export const RecipeProvider = props => {
+    
+    useEffect(()=>{
+        ItemRequest();
+    }, []); 
+    
+    const ItemRequest = async () => {
+        const request = await fetch("https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=67b7db34&app_key=b0f94e41d66422015311373c4dcfe5b1");
+        const response = await request.json();
+        console.log(response.hits);
+        setRecipes(response.hits);
+    }
+    
+    const [recipes, setRecipes] = useState([]);
+    
+    return (
+        <RecipesItemContext.Provider value={[recipes, setRecipes]}>
+            {props.children}
+        </RecipesItemContext.Provider>
     )
 }
 

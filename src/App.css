@@ -137,7 +137,8 @@ div.rr .col {
     margin-bottom: 1.5rem!important;
     background-color: white;
 	position: relative;
-	height: 300px;
+	height: fit-content;
+	max-height: 395px;
 	overflow: hidden;
 	transition: all .7s ease;
 	
@@ -157,16 +158,17 @@ div.rr .col:hover .itemHover{
 	cursor: pointer;
 }
 
-div.pbody {
-	height: 69%;
+div.rr div.pbody {
+	max-height: 58%;
+	height: 216px;
 	width: 100%;
 	overflow: hidden;
 	position: relative;
 }
 
 div.pbody .pimg{
-	height: 100%;
-	width: 100%;
+	height: 216px;
+	width: 218px;
 	transition: transform 0.8s ease;
 	
 }
@@ -177,12 +179,13 @@ div.pbody .pimg{
 }
 
 div.rr div.card-body {
-	height: 17%;
+	height: fit-content;
 	padding: 0 5px 5px 6px;
 }
 
-.pname {
-	height: 14%;
+div.rr div.pname {
+	max-height: 25%;
+	height: fit-content;
 	text-align: center;
     padding-top: 3px;
     width: 100%;
@@ -308,9 +311,10 @@ hr {
 	}
 	.navul2 {
 		flex-direction: row;
-        width: 100%;
-        justify-content: center;
-        height: 45px;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		height: 50px;
 	}
 
 	.nav-link {
@@ -525,7 +529,8 @@ hr {
 		margin-bottom: 1.5rem!important;
 		/* border-radius: 15px; */
 		position: relative;
-		height: 328px;
+		max-height: 395px;
+		height: fit-content;
 		overflow: hidden;
 		flex: 0 0 auto;
 		width: 46%;
@@ -536,7 +541,6 @@ hr {
 		height: 38%;
 		padding: 2px 10px 3px 10px!important;
 		width: 100%;
-		overflow: hidden;
 	
 	}
 
@@ -640,7 +644,7 @@ hr {
 }
 
 #snackbar {
-	visibility: hidden; /* Hidden by default. Visible on click */
+	display: none; /* Hidden by default. Visible on click */
 	min-width: 250px; /* Set a default minimum width */
 	margin-left: -125px; /* Divide value of min-width by 2 */
 	background-color: #333; /* Black background color */
@@ -654,12 +658,33 @@ hr {
 	bottom: 30px; /* 30px from the bottom */
   }
   #snackbar.showtoast {
-	visibility: visible; /* Show the snackbar */
+	display: block; /* Show the snackbar */
 	/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
 	However, delay the fade out process for 2.5 seconds */
 	-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
 	animation: fadein 0.5s, fadeout 0.5s 2.5s;
   }
+
+  .mobilecart {
+	position: absolute!important;
+    /* left: -10.7rem!important; */
+    width: 100vw;
+    overflow-y: scroll;
+    max-height: 88vh;
+	animation: mcartdropdown .5s ease 1;
+  }
+  .mobilecart.show {
+	  left: -10.7rem;
+  }
+
+  .nav-item {
+	  color: black;
+  }
+
+  .dropup .dropdown-toggle::after {
+	  display: none;
+  }
+
 /*===================================================
  animation keyframes 
  ======================================================*/
@@ -691,4 +716,8 @@ hr {
   @keyframes cartdropdown {
 	  from{right: -33rem;}
 	  to{right: 0rem;}
+  }
+  @keyframes mcartdropdown {
+	  from{left: 12rem;}
+	  to{left: -10.7rem;}
   }

@@ -11,7 +11,7 @@
     "fifthstar": "text-muted",
     "gender": "Male",
     "profileURL": "img/mob1.jpg",
-    "price": "56000 only",
+    "price": 56000,
     "email": "john.doe@example.com"
 },
 {
@@ -27,7 +27,7 @@
     "fifthstar": "text-muted",
     "gender": "Male",
     "profileURL": "img/mob2.jpg",
-    "price": "23000 only",
+    "price": 23000,
     "email": "john.doe@example.com"
 },
 {
@@ -43,7 +43,7 @@
     "fifthstar": "text-muted",
     "gender": "Male",
     "profileURL": "img/mob2.jpg",
-    "price": "23000 only",
+    "price": 23000,
     "email": "john.doe@example.com"
 },
 {
@@ -59,7 +59,7 @@
     "fifthstar": "text-muted",
     "gender": "Male",
     "profileURL": "img/mob2.jpg",
-    "price": "23000 only",
+    "price": 23000,
     "email": "john.doe@example.com"
 },
 {
@@ -75,7 +75,7 @@
     "fifthstar": "text-muted",
     "gender": "Male",
     "profileURL": "img/mob2.jpg",
-    "price": "23000 only",
+    "price": 23000,
     "email": "john.doe@example.com"
 },
 {
@@ -91,7 +91,7 @@
     "fifthstar": "text-muted",
     "gender": "Male",
     "profileURL": "img/mob2.jpg",
-    "price": "23000 only",
+    "price": 23000,
     "email": "john.doe@example.com"
 },
 {
@@ -107,7 +107,7 @@
     "fifthstar": "text-muted",
     "gender": "Male",
     "profileURL": "img/mob2.jpg",
-    "price": "23000 only",
+    "price": 23000,
     "email": "john.doe@example.com"
 },
 {
@@ -123,7 +123,7 @@
     "fifthstar": "text-muted",
     "gender": "Male",
     "profileURL": "img/mob2.jpg",
-    "price": "23000 only",
+    "price": 23000,
     "email": "john.doe@example.com"
 },
 {
@@ -139,7 +139,7 @@
     "fifthstar": "text-muted",
     "gender": "Male",
     "profileURL": "img/mob2.jpg",
-    "price": "23000 only",
+    "price": 23000,
     "email": "john.doe@example.com"
 },
 {
@@ -155,7 +155,7 @@
     "fifthstar": "text-muted",
     "gender": "Male",
     "profileURL": "img/mob2.jpg",
-    "price": "23000 only",
+    "price": 23000,
     "email": "john.doe@example.com"
 },
 {
@@ -171,7 +171,7 @@
     "fifthstar": "text-muted",
     "gender": "Male",
     "profileURL": "img/mob2.jpg",
-    "price": "23000 only",
+    "price": 23000,
     "email": "john.doe@example.com"
 },
 {
@@ -187,7 +187,7 @@
     "fifthstar": "text-muted",
     "gender": "Male",
     "profileURL": "img/mob2.jpg",
-    "price": "23000 only",
+    "price": 23000,
     "email": "john.doe@example.com"
 },
 {
@@ -203,7 +203,7 @@
     "fifthstar": "text-muted",
     "gender": "Male",
     "profileURL": "img/mob2.jpg",
-    "price": "23000 only",
+    "price": 23000,
     "email": "john.doe@example.com"
 },
 {
@@ -219,7 +219,7 @@
     "fifthstar": "text-muted",
     "gender": "Male",
     "profileURL": "img/mob2.jpg",
-    "price": "23000 only",
+    "price": 23000,
     "email": "john.doe@example.com"
 },
 {
@@ -235,7 +235,7 @@
     "fifthstar": "text-muted",
     "gender": "Male",
     "profileURL": "img/mob2.jpg",
-    "price": "23000 only",
+    "price": 23000,
     "email": "john.doe@example.com"
 }
 ]

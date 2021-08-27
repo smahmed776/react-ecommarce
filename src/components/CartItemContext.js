@@ -1,22 +1,45 @@
-import React, {useState, useEffect, createContext} from 'react'
+import React, { createContext, useReducer} from 'react'
+
+import { CartReducer, sumItems } from './CartReducer';
 
 
 export const CartItemContext = createContext();
 
-
+export const ACTIONS = {
+    INCREASE: 'increase',
+    DECREASE: 'decrease',
+    ADD_ITEM: 'add_item',
+    REMOVE_ITEM: 'remove_item'
+}
 
 export const CartItemProvider = props => {
-    const [cartItem, setCartItem] = useState([]);
-    useEffect(()=>{
-        cart();
-    }, []);
-    const cart = () => {
-        setCartItem([]);
+    const arr = [];
+    
+    const initialState = {cartItem: arr, ...sumItems(arr)}
 
+    const [state, dispatch] = useReducer(CartReducer, initialState)
+    const addItem = payload => {
+        dispatch({type: ACTIONS.ADD_ITEM, payload})
+    }
+    const removeItem = payload => {
+        dispatch({type: ACTIONS.REMOVE_ITEM, payload})
+    }
+    const increase = payload => {
+        dispatch({type: ACTIONS.INCREASE, payload})
+    }
+    const decrease = payload => {
+        dispatch({type: ACTIONS.DECREASE, payload})
+    }
+    const CartContextValue = {
+        removeItem, 
+        increase,
+        decrease, 
+        addItem,
+        ...state
     }
 
     return (
-        <CartItemContext.Provider value={[cartItem, setCartItem]}>
+        <CartItemContext.Provider value={CartContextValue}>
             {props.children}
         </CartItemContext.Provider>
     )

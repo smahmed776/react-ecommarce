@@ -1,22 +1,24 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useCart } from './cartHook';
 import { ItemContext } from './itemContext';
-import { CartItemContext } from './CartItemContext';
 
 const Trending = () => {
     const [trending] = useContext(ItemContext);
-    const [cartItem, setCartItem] = useContext(CartItemContext);
+    const {addItem} = useCart();
+    // const [increase] = useContext(CartItemContext);
 
-    const addToCart = (e) => {
-        console.log(e.target.id);
-        setCartItem([...cartItem, {name: e.target.dataset.name, profileURL: e.target.dataset.src, id: e.target.id}]);
-    }
+    // const addToCart = (e) => {
+    //     increase(e.target.id)
+    //     console.log(e.target.id);
+    //     // setCartItem([...cartItem, {name: e.target.dataset.name, profileURL: e.target.dataset.src, id: e.target.id, quantity: 1}]);
+    // }
 
-    useEffect(() => {
-            console.log(trending);    
-    }, [trending]);
+    // useEffect(() => {
+    //         console.log(trending);    
+    // }, [trending]);
 
     const PrevButton = (props)=> {
         const {onClick} = props;
@@ -95,6 +97,7 @@ const Trending = () => {
                 }
             ]}
         >
+
                 {trending.map(t=>(
                     <div className="col pb-2" id="top" key={t.sno}>
                         <div className="itemimg">
@@ -115,7 +118,7 @@ const Trending = () => {
                                      data-name={t.itemName}
                                      data-src={t.profileURL} 
                                      data-bs-pid={t.pid}
-                                       onClick={addToCart} >Add to cart</button>
+                                       onClick={()=> addItem(t)} >Add to cart</button>
                                 </div>
                             </div>
                         </div>
@@ -141,7 +144,7 @@ const Trending = () => {
                              data-name={t.itemName} 
                              data-src={t.profileURL}
                              data-bs-pid={t.pid} 
-                             onClick={addToCart}  >Add to cart</button>
+                             onClick={()=> addItem(t)}  >Add to cart</button>
                         </div>
                         
                     </div>

@@ -627,7 +627,7 @@ hr {
 }
 
 .cartdrop{
-	max-height: 80vh;
+	max-height: 71vh;
 	overflow-y: scroll;
 }
 
@@ -667,6 +667,7 @@ hr {
 
   .mobilecart {
 	position: absolute!important;
+	padding: 0;
     /* left: -10.7rem!important; */
     width: 100vw;
     overflow-y: scroll;

@@ -5,7 +5,7 @@ import { Items, RecipeItems} from './components/items';
 import Carousel from "./components/carousel";
 import Footer from "./components/footer";
 // import AddItems from "./components/addItems";
-import { AmazoneProvider, ItemProvider, RecipeProvider, TrendingProvider } from "./components/itemContext";
+import {  ItemProvider, RecipeProvider, TrendingProvider } from "./components/itemContext";
 import './App.css';
 import Trending from "./components/Trending";
 import { CartItemProvider } from "./components/CartItemContext";
@@ -22,10 +22,10 @@ function App() {
         </TrendingProvider>
         
         <ItemProvider>
-          <Items />
+          {/* <Items /> */}
         </ItemProvider>
           <RecipeProvider>
-            <RecipeItems />
+            {/* <RecipeItems /> */}
           </RecipeProvider>
           {/* <AddItems /> */}
       </CartItemProvider>

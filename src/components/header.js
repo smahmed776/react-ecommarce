@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import Cart from './Cart';
-import { CartItemContext } from './CartItemContext';
+
 import './header.css'
 
 const Header = () => {
 
-  const [cartItem] = useContext(CartItemContext);
 
 
 

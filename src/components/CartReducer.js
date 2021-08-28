@@ -29,7 +29,7 @@ export const CartReducer = (state, action) => {
                 cartItem:[...state.cartItem.filter(item=> item.sno !== action.payload.sno)]
             }
         case ACTIONS.ADD_ITEM:
-           !state.cartItem.find(item => item.sno === action.payload.sno)?state.cartItem.push({...action.payload, quantity: 1})  :console.log(`Already added ${state.cartItem.name}`) ;
+           !state.cartItem.find(item => item.sno === action.payload.sno)?state.cartItem.push({...action.payload, quantity: 1})  :alert(`Already added ${state.cartItem[state.cartItem.findIndex(it => it.sno === action.payload.sno)].itemName} to cart. \r\n click on cart to increase quantity`) ;
             
             return {
                 ...state,

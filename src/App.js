@@ -5,30 +5,24 @@ import { Items, RecipeItems} from './components/items';
 import Carousel from "./components/carousel";
 import Footer from "./components/footer";
 // import AddItems from "./components/addItems";
-import {  ItemProvider, RecipeProvider, TrendingProvider } from "./components/itemContext";
+
 import './App.css';
 import Trending from "./components/Trending";
-import { CartItemProvider } from "./components/CartItemContext";
+import CheckOut from "./pages/checkout";
+
 
 function App() {
   return (
     <div>
-      <CartItemProvider>
+      
       <Header />
       <Carousel />
-      <Headtitle title="This is head title."/>
-        <TrendingProvider>
-          <Trending />
-        </TrendingProvider>
-        
-        <ItemProvider>
-          {/* <Items /> */}
-        </ItemProvider>
-          <RecipeProvider>
-            {/* <RecipeItems /> */}
-          </RecipeProvider>
-          {/* <AddItems /> */}
-      </CartItemProvider>
+      <Headtitle title="This is head title."/>  
+      <Trending />
+      <Items />
+      {/* <RecipeItems /> */}
+      {/* <AddItems /> */}
+      <CheckOut />
       <Footer />
     </div>
   );

@@ -722,3 +722,11 @@ hr {
 	  from{left: 12rem;}
 	  to{left: -10.7rem;}
   }
+
+
+table tr{
+	border: 1px solid rgba(0,0,0,.125);
+}
+table tr td{
+	padding-left: 1rem!important;
+}

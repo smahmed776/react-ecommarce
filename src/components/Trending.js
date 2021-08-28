@@ -114,7 +114,7 @@ const Trending = () => {
                                     <a href="./product.html" title="See Product in detail">
                                         <button className="btn btn-info" id="cartButton1" >Details</button>
                                     </a>
-                                    <button className="btn btn-warning" key={t.sno} id={`cartButton${t.sno}`}
+                                    <button className="btn btn-warning ms-2" key={t.sno} id={`cartButton${t.sno}`}
                                      data-name={t.itemName}
                                      data-src={t.profileURL} 
                                      data-bs-pid={t.pid}

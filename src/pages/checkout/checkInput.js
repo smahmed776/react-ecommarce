@@ -4,17 +4,17 @@ const CheckInput = () => {
     return (
 <div className="col-lg-8 col-md-7 my-4">
                     <h4 className="my-4">বিল পরিশোধের ঠিকানাঃ</h4>
-                    <form action="" method="get" className="needs-validation" id="form1" novalidate>
+                    <form action="" method="get" className="needs-validation" id="form1" noValidate>
                         <div className="row g-3">
                             <div className="col-6">
                                 <label for="Fname" className="form-label">প্রথম নাম:</label>
-                                <input type="text" name="Fname" className="form-control" id="Fname" value="" placeholder="" required />
+                                <input type="text" name="Fname" className="form-control" id="Fname"  placeholder="" required />
                                     <div className="invalid-feedback">আপনার প্রথম নাম লিখুন।</div>
                             </div>
                             
                             <div className="col-6">
                                 <label for="Lname" className="form-label">শেষ নাম:</label>
-                                <input type="text" className="form-control" id="Lname" name="Lname" value="" placeholder="" required />
+                                <input type="text" className="form-control" id="Lname" name="Lname" placeholder="" required />
                                 <div className="invalid-feedback">আপনার শেষ নাম লিখুন।</div>
                             </div>
                             
@@ -22,25 +22,25 @@ const CheckInput = () => {
                                 <label for="Uname" className="form-label">ইউজারনেম:</label>
                                 <div className="input-group">
                                     <span className="input-group-text" style={{fontFamily: "'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"}}>@</span>
-                                    <input name="Uname" type="text" id="Uname" className="form-control" value="" placeholder="" required/>
+                                    <input name="Uname" type="text" id="Uname" className="form-control"  placeholder="" required/>
                                     <div className="invalid-feedback">আপনার ইউজারনেম দিন।</div>
                                 </div>
                             </div>
 
 					        <div className="col-12">
                                 <label for="email" className="form-label">ইমেইল এড্রেস: <span className="text-muted">(অতিরিক্ত)</span></label>
-                                <input name="email" type="email" id="email" className="form-control" placeholder="someone@example.com" value=""/>
+                                <input name="email" type="email" id="email" className="form-control" placeholder="someone@example.com"/>
                                 <div className="invalid-feedback">ইমেইল এড্রেস সঠিকভাবে লিখুন।</div>
 					        </div>
                             
                             <div className="col-12">
                                 <label for="adress" className="form-label">আপনার বর্তমান ঠিকানাঃ</label>
-                                <input type="text" name="adress" id="adress" className="form-control" value="" required />
+                                <input type="text" name="adress" id="adress" className="form-control" required />
                             </div>
 
 					        <div className="col-12">
                                 <label for="adress2" className="form-label">আপনার স্থায়ী ঠিকানাঃ <span className="text-muted">(অতিরিক্ত)</span></label>
-                                <input type="text" className="form-control" id="adress2" name="adress2" value="" placeholder="" />
+                                <input type="text" className="form-control" id="adress2" name="adress2" placeholder="" />
                             </div>
 
 					        <div className="col-4">
@@ -67,7 +67,7 @@ const CheckInput = () => {
 
 					        <div className="col-4">
 					        	<label for="postoffice" className="form-label">পোস্ট অফিসঃ</label>
-					        	<input type="text" name="postoffice" id="postoffice" className="form-control" value="" required />
+					        	<input type="text" name="postoffice" id="postoffice" className="form-control" required />
 					        	<div className="invalid-feedback">আপনার পোস্ট অফিসের নাম দিন।</div>
 					        </div>
 				        </div>
@@ -92,7 +92,7 @@ const CheckInput = () => {
 				        <div className="my-3">
 				        	<div className="form-check my-2">
 				        		<div>
-                                    <input name="payment"  type="radio" className="form-check-input" value="bkash" id="bkash"  required />
+                                    <input name="payment"  type="radio" className="form-check-input" id="bkash"  required />
                                     <label for="bkash" className="form-check-label">বিকাশ</label>
 				        	    </div>
 				        		
@@ -208,7 +208,7 @@ const CheckInput = () => {
 							        <hr className="my-4" />
 
 							        <label for="bkashNumber" className="form-label">বিকাশ নাম্বার:</label>
-							        <input type="number" maxlength="12" className="form-control" name="bkashNumber" id="bkashNumber" required />
+							        <input type="number" maxLength="12" className="form-control" name="bkashNumber" id="bkashNumber" required />
 							        <div className="invalid-feedback">
 							        	আপনার বিকাশ নাম্বার দিন।
 							        </div>
@@ -225,7 +225,7 @@ const CheckInput = () => {
 				            {/* this is credit card section */}
 
 					        <div className="form-check my-2">
-					           <input name="payment" type="radio" className="form-check-input" id="creditcard" value="creditCard" checked required />
+					           <input name="payment" type="radio" className="form-check-input" id="creditcard" checked required />
 					           <label for="creditcard" className="form-check-label">ক্রেডিট কার্ড</label>
 					        </div>
         
@@ -264,7 +264,7 @@ const CheckInput = () => {
 
 					
 					        <div className="form-check my-2">
-					           <input name="payment" type="radio" className="form-check-input" id="cashondelivery" value="cashOnDelivery" required />
+					           <input name="payment" type="radio" className="form-check-input" id="cashondelivery"  required />
 					           <label for="cashondelivery" className="form-check-label">ক্যাশ অন ডেলিভারী</label>
 					        </div>
         
@@ -276,7 +276,7 @@ const CheckInput = () => {
 
 				        <hr className="my-4" />
 
-				        <input type="submit" value="submit" className="btn btn-success w-100" />
+				        <button type="submit" className="btn btn-success w-100" >Submit</button>
 			        </form>
 		        </div>
     )

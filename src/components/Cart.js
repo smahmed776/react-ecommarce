@@ -23,7 +23,7 @@ const Cart = (props) => {
             toastText.className = "showtoast";
             setTimeout(()=>{
                 toastText.className= toastText.className.replace("showtoast", "");
-                console.log('timout working!!');
+                // console.log('timout working!!');
             }, 800)
         } else {
             // toastText.className.replace("show", "");
@@ -41,7 +41,7 @@ const Cart = (props) => {
             setTimeout(()=>{
                 mreference.classList.remove('cartshake');
                 toastText.className= toastText.className.replace("showtoast", "");
-                console.log('timout working!!');
+                // console.log('timout working!!');
             }, 800)
         } else {
 
@@ -56,10 +56,10 @@ const Cart = (props) => {
             setTimeout(()=>{
                 reference.classList.remove('cartshake');
                 toastText.className= toastText.className.replace("showtoast", "");
-                console.log('timout working!!');
+                // console.log('timout working!!');
             }, 800)
         }
-        console.log("cartshake added!!");
+        // console.log("cartshake added!!");
     }, [cartItem.length]);
 
    
@@ -78,10 +78,10 @@ const Cart = (props) => {
                   aria-expanded="false" 
                   style={{"padding":"4px 8px"}} 
                   data-bs-auto-close="outside">
-                    <span className="bi bi-cart4" style={{"font-size":"21px","padding-right":"5px","-webkit-box-pack":"start","-webkit-justify-content":"flex-start","-ms-flex-pack":"start","justify-content":"flex-start","position":"relative"}}>
-                        <span className={cartItem.length? "bage bg-primary rounded-pill cart" : "bage bg-danger rounded-pill cart"}   style={{"position":"absolute","top":"0","right":"0"}} id="cartPill2">{itemCount}</span>
+                    <span className="bi bi-cart4" style={{fontSize:"21px",paddingRight:"5px", justifyContent:"flex-start", position:"relative"}}>
+                        <span className={cartItem.length? "bage bg-primary rounded-pill cart" : "bage bg-danger rounded-pill cart"}   style={{position:"absolute",top:"0",right:"0"}} id="cartPill2">{itemCount}</span>
                     </span>
-                    <span style={{"margin-top":"-8px"}}>Cart</span>
+                    <span style={{marginTop:"-8px"}}>Cart</span>
                 </a>
                 <ul className="dropdown-menu mobilecart" aria-labelledby="dropdown2">
                     {cartItem.length?

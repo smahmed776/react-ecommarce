@@ -21,7 +21,7 @@ const Header = () => {
                 {/*=================================================================================
 				 search bar 
 			======================================================================================*/}
-                <form className="form-inline float-right me-auto searchform" id="searchform" action>
+                <form className="form-inline float-right me-auto searchform" id="searchform" >
                     <div className="input-group" style={{ WebkitFlexWrap: "nowrap", msFlexWrap: "nowrap", flexWrap: "nowrap" }}>
                         <div className="form-floating">
                             <input className="form-control" type="search" id="searchfloating" name="search" placeholder="Search for your products" required title="hi" style={{ "height": "43px" }} />
@@ -35,19 +35,19 @@ const Header = () => {
                 </form>
                 <button className="navbar-toggler navbar-light btntoggle" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
                     {/* <span class="navbar-toggler-icon"></span> */}
-                    <div className style={{ "display": "inline-block", "cursor": "pointer" }}>
+                    <div  style={{ "display": "inline-block", "cursor": "pointer" }}>
                         <div className="bar1" />
                         <div className="bar2" />
                         <div className="bar3" />
                     </div>
                 </button>
-                <div className="collapse navbar-collapse" id="collapsibleNavbar" style={{ WebkitBoxPack: "end", WebkitJustifyContent: "flex-end", msFlexPack: "end", justifyContent: "flex-end", "-webkit-align-items": "center", "-webkit-box-align": "center", "-ms-flex-align": "center", alingnItems: "center" }}>
+                <div className="collapse navbar-collapse" id="collapsibleNavbar" style={{ WebkitBoxPack: "end", WebkitJustifyContent: "flex-end", msFlexPack: "end", justifyContent: "flex-end", WebkitAlignItems: "center", WebkitBoxAlign: "center", msFlexAlign: "center", alingnItems: "center" }}>
                     <ul className="navbar-nav navul">
                         <li className="nav-item navitem">
-                            <a className="nav-link px-2" href>About Us</a>
+                            <a className="nav-link px-2" >About Us</a>
                         </li>
                         <li className="nav-item navitem">
-                            <a className="nav-link px-2" href>Home</a>
+                            <a className="nav-link px-2" >Home</a>
                         </li>
                         <li className="nav-item navitem">
                             <a className="nav-link px-2" href="#" data-bs-target="#lcontainer2" data-bs-toggle="modal">Register</a>
@@ -70,7 +70,7 @@ const Header = () => {
   <div className="header container-fluid navbar w-100 fixed-bottom" id="mobilenav">
     <ul className="navbar-nav navbar-expand-sm navul2">
       <li className="nav-item navitem">
-        <a className="nav-link px-2" href><span className="bi bi-house-door" /> Home</a>
+        <a className="nav-link px-2" ><span className="bi bi-house-door" /> Home</a>
       </li>
 
       <li className="nav-item navitem">
@@ -90,17 +90,17 @@ const Header = () => {
         </a>
       
       <ul className="dropdown-menu justify-content-between" 
-       aria-aria-labelledby="profile"
-       style={{"width":"100%","position":"absolute","left":"0","-webkit-transition":"bottom .6s ease","transition":"bottom .6s ease"}}>
+       aria-labelledby="profile"
+       style={{"width":"100%","position":"absolute","left":"0","transition":"bottom .6s ease"}}>
         <li>
-        <div className="dropdown-item  bg-light" style={{"height":"45px","padding-top":"10px","width":"40%","-webkit-text-align":"center","text-align":"center"}}>
-          <a style={{"-webkit-text-decoration":"none","text-decoration":"none","-webkit-text-align":"center","text-align":"center","padding":"10px 12px 10px 12px","width":"100%"}} href="#" data-bs-target="#mContainer" data-bs-toggle="modal">Login</a>
+        <div className="dropdown-item  bg-light" style={{"height":"45px",paddingTop:"10px","width":"40%",WebkitTextAlign:"center",textAlign:"center"}}>
+          <a style={{WebkitTextDecoration:"none",textDecoration:"none",WebkitTextAlign:"center",textAlign:"center","padding":"10px 12px 10px 12px","width":"100%"}} href="#" data-bs-target="#mContainer" data-bs-toggle="modal">Login</a>
         </div>
         </li>
         <hr />
         <li>
-        <div className="dropdown-item  bg-light" style={{"height":"45px","padding-top":"10px","width":"40%","-webkit-text-align":"center","text-align":"center"}}>
-          <a style={{"-webkit-text-decoration":"none","text-decoration":"none","-webkit-text-align":"center","text-align":"center","padding":"10px 12px 10px 12px","width":"100%"}} href="#" data-bs-target="#lcontainer2" data-bs-toggle="modal">Register</a>
+        <div className="dropdown-item  bg-light" style={{"height":"45px",paddingTop:"10px","width":"40%",WebkitTextAlign:"center",textAlign:"center"}}>
+          <a style={{WebkitTextDecoration:"none",textDecoration:"none",WebkitTextAlign:"center",textAlign:"center","padding":"10px 12px 10px 12px","width":"100%"}} href="#" data-bs-target="#lcontainer2" data-bs-toggle="modal">Register</a>
         </div>
         </li>
       </ul>
@@ -108,7 +108,7 @@ const Header = () => {
 
       <li className="nav-item navitem" id="btnnav">
         <button className="navbar-toggler navbar-light btntoggles" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
-          <div className style={{"display":"inline-block","cursor":"pointer"}} onclick="myFunction(this)">
+          <div style={{"display":"inline-block","cursor":"pointer"}} >
             <div className="bar1" />
             <div className="bar2" />
             <div className="bar3" />
@@ -126,7 +126,7 @@ const Header = () => {
           <button className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
         </div>
         <div className="modal-body">
-          <form method="GET" action className="needs-validation p-3" id="lform" noValidate>
+          <form method="GET" className="needs-validation p-3" id="lform" noValidate>
             <div className="row">
               <div className="cols-12">
                 <label htmlFor="username" className="form-label">User Name:</label>
@@ -139,7 +139,7 @@ const Header = () => {
                 <label htmlFor="password" className="form-label">Password:</label>
                 <div className="input-group">
                   <input className="form-control" form="lform" type="password" name="password" id="password" defaultValue required />
-                  <span className="input-group-text bi bi-eye-fill" style={{"cursor":"pointer"}} title="show password" id="showPass" onclick="showPass();" />
+                  <span className="input-group-text bi bi-eye-fill" style={{"cursor":"pointer"}} title="show password" id="showPass" />
                   <div className="invalid-feedback">
                     Password required!
                   </div>
@@ -164,7 +164,7 @@ const Header = () => {
           </form>
           <div className="text-center mt-2">
             <p>
-              forgot password? <a href style={{"-webkit-text-decoration":"none","text-decoration":"none"}}>Click Here</a> to reset!
+              forgot password? <a style={{WebkitTextDecoration:"none",textDecoration:"none"}}>Click Here</a> to reset!
             </p>
           </div>
         </div>
@@ -185,7 +185,7 @@ const Header = () => {
           <button className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
         </div>
         <div className="modal-body">
-          <form method="GET" action className="needs-validation p-3" id="regform" noValidate>
+          <form method="GET" className="needs-validation p-3" id="regform" noValidate>
             <div className="row">
               <div className="col-6">
                 <label htmlFor="Fname" className="form-label">First Name:</label>

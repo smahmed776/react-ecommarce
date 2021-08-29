@@ -20,7 +20,7 @@ function App() {
       <Headtitle title="This is head title."/>  
       <Trending />
       <Items />
-      {/* <RecipeItems /> */}
+      <RecipeItems />
       {/* <AddItems /> */}
       <CheckOut />
       <Footer />

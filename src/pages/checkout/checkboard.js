@@ -9,7 +9,7 @@ const CheckBoard = ({itemCount, total, cartItem}) => {
                     </h4>
                     
 
-                            <table class="table table-striped bfont">
+                            <table className="table table-striped bfont">
                             <tbody>
                         {cartItem.map(item => (
                            

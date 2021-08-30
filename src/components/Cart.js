@@ -1,4 +1,5 @@
 import React, {useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom';
 import {useCart} from './cartHook'
 
 const Cart = (props) => {
@@ -19,14 +20,16 @@ const Cart = (props) => {
         }
     useEffect(() => {
         const toastText = toast.current;
-        if(cartItem){
+        if(itemCount > 0){
             toastText.className = "showtoast";
+            console.log("toast added");
             setTimeout(()=>{
                 toastText.className= toastText.className.replace("showtoast", "");
-                // console.log('timout working!!');
+                console.log('timout working!!');
             }, 800)
         } else {
-            // toastText.className.replace("show", "");
+            toastText.className.replace("show", "");
+            console.log("toast removed");
         };
 
         if (props.mobile){
@@ -59,7 +62,7 @@ const Cart = (props) => {
                 // console.log('timout working!!');
             }, 800)
         }
-        // console.log("cartshake added!!");
+        // console.log(cartItem);
     }, [cartItem.length]);
 
    
@@ -68,32 +71,37 @@ const Cart = (props) => {
 
     return (
         <>
-             <div id="snackbar" ref={toast}>{toastinnertext(itemCount)}</div> 
+             <div className="" id="snackbar" ref={toast}>{toastinnertext(itemCount)}</div> 
             {(props.mobile?
             <>
 
-                <a ref={mcartshake} className="btn nav-link dropdown-toggle px-2 d-flex justify-content-center text-dark" 
-                  data-bs-toggle="dropdown" 
-                  id="dropdown2" 
-                  aria-expanded="false" 
+                <a ref={mcartshake} className="btn nav-link px-2 d-flex justify-content-center text-dark" 
+                  data-bs-toggle="offcanvas" 
+                  data-bs-target="#dropdown2"
+                  role="button"           
+                  aria-controls="dropdown2" 
                   style={{"padding":"4px 8px"}} 
-                  data-bs-auto-close="outside">
+                  >
                     <span className="bi bi-cart4" style={{fontSize:"21px",paddingRight:"5px", justifyContent:"flex-start", position:"relative"}}>
                         <span className={cartItem.length? "bage bg-primary rounded-pill cart" : "bage bg-danger rounded-pill cart"}   style={{position:"absolute",top:"0",right:"0"}} id="cartPill2">{itemCount}</span>
                     </span>
                     <span style={{marginTop:"-8px"}}>Cart</span>
                 </a>
-                <ul className="dropdown-menu mobilecart" aria-labelledby="dropdown2">
+                <div className="offcanvas offcanvas-end " tabIndex="-1" id="dropdown2" aria-labelledby="dropdown2Label">
                     {cartItem.length?
                     <>
-                    <li>
-                            <div className="w-100 p-2 pt-0 text-center" style={{boxShadow: "0 0 5px rgb(0 0 0 / 10%)"}} >
-                                <h4 className="dropdown-item text-primary" id="cartDropDown">{`You have ${itemCount} items in your cart.`}</h4>
-                                <h6 className="dropdown-item text-dark text-center" ><span className="m-auto">{`Total price: ${total} Taka`}</span></h6>
+                    <div className="offcanvas-header justify-content-center align-items-center w-100 text-center" 
+                        style={{flexDirection: "column", boxShadow: "0 0 5px rgb(0 0 0 / 10%)"}}>
+                            
+                            <h4 className=" text-primary" id="cartDropDown">{`You have ${itemCount} items in your cart.`}
+                                <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </h4>
+                            <h6 className=" text-dark text-center" ><span className="m-auto">{`Total price: ${total} Taka`}</span></h6>
                                   
-                            </div>
-                              
-                            <div className="cartdrop ps-4">
+                           
+                    </div>        
+                    <div className="offcanvas-body">
+                            <div className=" cartdrop ps-4">
                                 {cartItem.map(c => (
                                     <>
                                     <div className="p-2 mt-2" key={c.id}>
@@ -115,15 +123,22 @@ const Cart = (props) => {
                                     </>
                                 ))}
                             </div>
-                    </li>
-                    <li style={{height: "35px"}}>
-                        <button className="btn btn-secondary w-100 text-white" href="./cart.html" id="cartLink">ক্রয় নিশ্চিত করুন &gt;&gt;</button>
-                    </li>
+                    </div>
+                    <div className="cartButton">
+                       
+
+                       <Link to="/checkout" className="btn btn-secondary w-100 m-0  cbutton">ক্রয় নিশ্চিত করুন</Link>
+                  
+                       
+                   </div>
                     </>
                       :
-                      <p className="dropdown-item" id="cartDropDown">Your cart is empty! Please add some items to cart to procced.</p>
+                      <div className="d-flex justify-content-center pt-3" style={{flexDirection: "column"}}>
+                          <button type="button" className="btn-close text-reset text-center m-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                          <p className="p-3" id="cartDropDown">Your cart is empty! Please add some items to cart to procced.</p>
+                      </div>
                     }
-                </ul>
+                </div>
                     
             </>
             
@@ -133,21 +148,24 @@ const Cart = (props) => {
 
             <>
             
-                <a ref={cartshake} className="nav-link dropdown-toggle px-2 d-flex justify-content-center" data-bs-toggle="dropdown" id="dropdown1" data-bs-auto-close="false" aria-expanded="false" style={{ padding: "4px 8px" }} href="#">
+                <a ref={cartshake} className="nav-link px-2 d-flex justify-content-center" role="button" data-bs-toggle="offcanvas" data-bs-target="#dropdown1"  aria-controls="dropdown1" style={{ padding: "4px 8px" }} >
                     <i className= "bi bi-cart3 "  style={{ fontSize: "21px", paddingRight: "5px", WebkitBoxPack: "start", WebkitJustifyContent: "flex-start", msFlexPack: "start", justifyContent: "flex-start" }}></i>
                     <span className={cartItem.length? "bage bg-primary rounded-pill cart" : "bage bg-danger rounded-pill cart"} id="cartPill">{itemCount}</span>
                 </a>
 
-                <ul className="dropdown-menu cartdropdown p-0"  aria-labelledby="dropdown1">
+                <div className="offcanvas offcanvas-end "  tabIndex="-1"  aria-labelledby="dropdown1Label" id="dropdown1">
                     {cartItem.length?
                        <> 
-                        <li>
-                            <div className="w-100 p-2 text-center" style={{boxShadow: "0 0 5px rgb(0 0 0 / 10%)"}} >
-                                <h4 className="dropdown-item text-primary" id="cartDropDown">{`You have ${itemCount} items in your cart.`}</h4>
-                                <h6 className="dropdown-item text-dark text-center" ><span className="m-auto">{`Total price: ${total} Taka`}</span></h6>
-                                
-                            </div>
+                        <div className="offcanvas-header justify-content-center align-items-center w-100 text-center" 
+                        style={{flexDirection: "column", boxShadow: "0 0 5px rgb(0 0 0 / 10%)"}}>
                             
+                            <h4 className=" text-primary" id="cartDropDown">{`You have ${itemCount} items in your cart.`}
+                            <button type="button" className="btn-close text-reset ps-2" data-bs-dismiss="offcanvas" aria-label="Close"></button></h4>
+                            <h6 className=" text-dark text-center" ><span className="m-auto">{`Total price: ${total} Taka`}</span></h6>
+                                
+                            
+                        </div>    
+                        <div className="offcanvas-body">
                             <div className="cartdrop ps-4">
                                 {cartItem.map(c => (
                                     <div className="p-2 mt-2" key={c.id}>
@@ -161,52 +179,24 @@ const Cart = (props) => {
                                     </div>
                                 ))}
                             </div>
-                        </li>
-                        <li>
-                            <a href="./cart.html" style={{ paddingBottom: "10px" }} id="cartLink">ক্রয় নিশ্চিত করুন &gt;&gt;</a>
-                        </li>
+                        </div>
+                        <div>
+                       
+
+                            <Link to="/checkout" className="btn btn-secondary w-100 m-0 cbutton">ক্রয় নিশ্চিত করুন</Link>
+                       
+                            
+                        </div>
                         </>
                         :
-                        <p className="dropdown-item" id="cartDropDown">Your cart is empty! Please add some items to cart to procced.</p>
+                        <div className="d-flex justify-content-center pt-3" style={{flexDirection: "column"}}>
+                            <button type="button" className="btn-close text-reset text-center m-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <p className="p-3" id="cartDropDown">Your cart is empty! Please add some items to cart to procced.</p>
+                        </div>
                     }
-                </ul>
+                </div>
             </>
 
-
-
-
-           //  <a ref={cartshake} className="nav-link dropdown-toggle px-2 d-flex justify-content-center" data-bs-toggle="dropdown" id="dropdown1" data-bs-auto-close="false" aria-expanded="false" style={{ padding: "4px 8px" }} href="#">
-              //                  <i className= "bi bi-cart3 "  style={{ fontSize: "21px", paddingRight: "5px", WebkitBoxPack: "start", WebkitJustifyContent: "flex-start", msFlexPack: "start", justifyContent: "flex-start" }}></i>
-                //                <span className={cartItem? "bage bg-primary rounded-pill cart": "bage bg-danger rounded-pill cart"} id="cartPill">
-                  //                  {cartItem}
-                    //            </span>
-                      //      </a>
-                        //    <ul className="dropdown-menu cartdropdown"  aria-labelledby="dropdown1">
-                          //      <li id>
-                            //        {cartItem?
-                              //      <div>
-                                //        <h4 className="dropdown-item text-primary" id="cartDropDown">{`You have ${cartItem} items in your cart.`}</h4>
-                                  //      <div className="cartdrop">
-                                    //        {cartItem.map(c => (
-                                      //          <div className="p-2 mt-2" key={c.id}>
-                                        //            <h5 key={c.id}>{c.name}</h5>
-                                          //          <img className="mb-2" src={c.profileURL} alt={c.name} height="55px" width="55px" />
-                                            //        <button  className="btn bi bi-plus-circle-fill text-success" id={c.id} data-product={c.id} onClick={(e)=>{addQuantity(e.target.dataset.product)}}></button>
-                                              //      <span>Quantity: {c.quantity}</span>                                                    
-                                                //    <button className="btn bi bi-dash-circle-fill text-danger" id={c.id} ></button>                                                    
-                                                  //  <button className="btn bi bi-trash-fill text-danger"></button>                                                    
-                                                 //   <hr />
-                                           //     </div>
-                                         //   ))}
-                                     //   </div>
-                                    //    <a href="./cart.html" style={{ paddingBottom: "10px" }} id="cartLink">ক্রয় নিশ্চিত করুন &gt;&gt;</a>
-                                 //   </div>
-                                //    :
-                               //     <p className="dropdown-item" id="cartDropDown">Your cart is empty! Please add some items to cart to procced.</p>
-                            //    }
-                           //     </li>
-                         //   </ul>
-        //    
             )} 
         </>
     )

@@ -2,21 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { HashRouter } from 'react-router-dom';
 import { CartItemProvider } from "./components/CartItemContext";
 import {  ItemProvider, RecipeProvider, TrendingProvider } from "./components/itemContext";
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <CartItemProvider>
-      <ItemProvider>
-        <RecipeProvider>
-          <TrendingProvider>
-            <App />
-          </TrendingProvider>
-        </RecipeProvider>
-      </ItemProvider>
-    </CartItemProvider>
+    <HashRouter>
+      <CartItemProvider>
+        <ItemProvider>
+          <RecipeProvider>
+            <TrendingProvider>
+              
+                <App />
+              
+            </TrendingProvider>
+          </RecipeProvider>
+        </ItemProvider>
+      </CartItemProvider>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

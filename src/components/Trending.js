@@ -3,22 +3,12 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useCart } from './cartHook';
-import { ItemContext } from './itemContext';
+import { TrendingItemContext } from './itemContext';
 
 const Trending = () => {
-    const [trending] = useContext(ItemContext);
+    const [trending] = useContext(TrendingItemContext);
     const {addItem} = useCart();
-    // const [increase] = useContext(CartItemContext);
 
-    // const addToCart = (e) => {
-    //     increase(e.target.id)
-    //     console.log(e.target.id);
-    //     // setCartItem([...cartItem, {name: e.target.dataset.name, profileURL: e.target.dataset.src, id: e.target.id, quantity: 1}]);
-    // }
-
-    // useEffect(() => {
-    //         console.log(trending);    
-    // }, [trending]);
 
     const PrevButton = (props)=> {
         const {onClick} = props;
@@ -38,17 +28,13 @@ const Trending = () => {
     }
 
     return (
-    <div className="container  marketing my-4 pe-0">
+    <div className="container  marketing my-4 pe-0" style={{position: "relative", minHeight: "55vh"}}>
 		<div className="d-flex justify-content-between align-items-center" style={{borderBottom: "1px solid rgb(149, 153, 149)"}}>
 			<h2 className="pb-0 text-bold ">
 				<span> TRENDING ON EASYSHOPPING.COM</span>
 			</h2>
-			{/* <div className="indicatorb d-inline-block" style={{paddingBottom: "8px"}}>
-				<button style={{fontSize: "16px", fontWeight: "bolder"}} className="btn btn-outline-primary disabled" id="hellop">&#8810</button>
-				<button style={{fontSize: "16px", fontWeight: "bolder"}} className="btn btn-outline-primary" id="hellon">&#8811</button>
-			</div> */}
 		</div>
-		
+		<div className="" id="trendingload" style={{display: "none"}}></div>
 	
         
         <Slider className="py-4 trending" 
@@ -56,7 +42,7 @@ const Trending = () => {
             infinite 
             nextArrow= {<NextButton />}
             prevArrow= {<PrevButton />}
-            slidesToShow={5}   
+            slidesToShow={6}  
             slidesToScroll={3}
             responsive= {[
                 {
@@ -109,18 +95,7 @@ const Trending = () => {
                         </div>
                         <div className="pbody">
                             <img className="pimg" id="lgimg" src={t.profileURL} alt="" height="80%" width="100%" />
-                            <div className="itemHover" >
-                                <div>
-                                    <a href="./product.html" title="See Product in detail">
-                                        <button className="btn btn-info" id="cartButton1" >Details</button>
-                                    </a>
-                                    <button className="btn btn-warning ms-2" key={t.sno} id={`cartButton${t.sno}`}
-                                     data-name={t.itemName}
-                                     data-src={t.profileURL} 
-                                     data-bs-pid={t.pid}
-                                       onClick={()=> addItem(t)} >Add to cart</button>
-                                </div>
-                            </div>
+                            
                         </div>
                         <div className="card-body ">
                             <div className="mt-3 m-0 ps-2">
@@ -137,14 +112,13 @@ const Trending = () => {
                                 </p>
                             </div>
                 
-                            <a href="./product.html" title="See Product in detail">
-                                <button className="btn btn-info Mbutton" id="cartButton1" >Details</button>
-                            </a>
-                            <button className="btn btn-warning Mbutton" key={t.sno} id={`cartButton${t.sno}`}
-                             data-name={t.itemName} 
-                             data-src={t.profileURL}
-                             data-bs-pid={t.pid} 
-                             onClick={()=> addItem(t)}  >Add to cart</button>
+                            <button className="btn btn-outline-info Mbutton mb-2 mt-1 w-100" title="See Product in detail" id="cartButton1" >Details</button>
+                <button className="btn btn-outline-dark Mbutton  w-100" id={'cartButton'+t.sno}
+                 data-name={t.itemName}
+                 data-src={t.profileURL}
+                 data-bs-pid={t.sno}
+
+                 onClick={()=> addItem(t)}>Add to cart</button>
                         </div>
                         
                     </div>

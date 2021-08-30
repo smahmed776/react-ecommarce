@@ -1,4 +1,4 @@
-import React, { createContext, useReducer} from 'react'
+import React, {useState, createContext, useReducer} from 'react'
 
 import { CartReducer, sumItems } from './CartReducer';
 
@@ -12,8 +12,9 @@ export const ACTIONS = {
     REMOVE_ITEM: 'remove_item'
 }
 
+
 export const CartItemProvider = props => {
-    const arr = [];
+    const arr = localStorage.getItem('cart')? JSON.parse(localStorage.getItem('cart')): []
     
     const initialState = {cartItem: arr, ...sumItems(arr)}
 

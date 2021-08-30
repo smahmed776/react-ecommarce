@@ -1,0 +1,40 @@
+.custom-dots {
+    display: flex!important;
+    flex-direction: column;
+    top: 10%;
+    width: 45px;
+
+}
+.custom-dots li {
+    height: 55px;
+    margin-bottom: 1rem;
+
+  
+}
+.custom-dots li img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+li.slick-active img {
+    filter: grayscale(100%);
+    border: 1px solid black;
+}
+
+.custom-slick img {
+    padding: .5rem 3rem;
+    margin-left: 4rem;
+    margin-right: 1rem;
+    height: 30rem;
+    width: 40vw!important;
+}
+@media (max-width: 570px) {
+    .custom-slick img {
+        padding: .5rem 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        height: 23rem;
+        width: 100%!important;
+    }
+    
+}

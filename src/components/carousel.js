@@ -25,7 +25,7 @@ const NextButton = (props)=> {
 
 const carousel = () => {
     return (
-    <div className="my-5 ms-4">            
+    <div className="my-2 ms-2">            
         <Slider infinite={true}
                 autoplay
                 dots

@@ -3,26 +3,26 @@ import './footer.css'
 
 const footer = () => {
     return (
-    <div>
-        <div className="row px-4 py-4 me-0 justify-content-start w-100">
+    <footer className="bg-dark text-white">
+        <div className="row px-4 py-4 me-0 justify-content-start w-100 " style={{borderTop: "1px solid rgba(0,0,0,.125)"}}>
             <div className="col-3 text-left fcol">
-                <h5 style={{color: "#4e4e4e"}}>ABOUT</h5>
+                <h5 style={{color: "#e8ffea9c"}}>ABOUT</h5>
                 <hr className="text-success"/>
                 <ul className="flist ps-0" style={{listStyleType : "none"}}>
                     <li>
-                        <a className="" style={{color : "rgb(126, 126, 126)"}} href="">About Us</a>
+                        <a className="" style={{color : "#e8ffea9c"}} href="">About Us</a>
                     </li>
                     <li>
-                        <a className="" style={{color : "rgb(126, 126, 126)"}} href="">Privacy Policy</a>
+                        <a className="" style={{color : "#e8ffea9c"}} href="">Privacy Policy</a>
                     </li>
                     <li>
-                        <a className="" style={{color : "rgb(126, 126, 126)"}} href="">Terms & Conditions</a>
+                        <a className="" style={{color : "#e8ffea9c"}} href="">Terms & Conditions</a>
                     </li>
                 </ul>
             </div>
             
             <div className="col-4 text-left fcol">
-                <h5 style={{color: "#4e4e4e"}}>Contact</h5>
+                <h5 style={{color: "#e8ffea9c"}}>Contact</h5>
                 <hr className="text-success" />
                 <ul className="flist ps-0" style={{listStyleType: "none"}}>
                     <li>
@@ -38,7 +38,7 @@ const footer = () => {
             </div>
             
             <div className="col-4 text-left fcol" >
-                <h5 style={{color : "#4e4e4e"}}>WE ACCEPT</h5>
+                <h5 style={{color : "#e8ffea9c"}}>WE ACCEPT</h5>
                 <hr className="text-success"/>
                 <ul className="flist ps-0" style={{listStyleType : "none"}}>
                     <li>
@@ -46,7 +46,7 @@ const footer = () => {
                     </li>
                 </ul>
                 
-                <h5 style={{color : "#4e4e4e"}}>DOWNLOAD OUR APP</h5>
+                <h5 style={{color : "#e8ffea9c"}}>DOWNLOAD OUR APP</h5>
                 <hr className="text-success"/>
                 <div className="d-flex justify-content-between flist ps-0" style={{listStyleType : "none"}}>
                     <a href="">
@@ -60,10 +60,10 @@ const footer = () => {
         			
         </div>
         
-        <div className="border-top m-3 pb-4">
+        <div className="border-top border-warning m-3 pb-4">
             <p className="text-center p-4">2021 - All rights reserved by Syed Mahbub</p>
         </div>
-    </div>
+    </footer>
     )
         	{/*
         		<!--======================================================================================================

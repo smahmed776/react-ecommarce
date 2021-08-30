@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Cart from './Cart';
 
 import './header.css'
@@ -47,7 +48,7 @@ const Header = () => {
                             <a className="nav-link px-2" >About Us</a>
                         </li>
                         <li className="nav-item navitem">
-                            <a className="nav-link px-2" >Home</a>
+                            <Link to="/" className="nav-link px-2" >Home</Link>
                         </li>
                         <li className="nav-item navitem">
                             <a className="nav-link px-2" href="#" data-bs-target="#lcontainer2" data-bs-toggle="modal">Register</a>
@@ -70,7 +71,7 @@ const Header = () => {
   <div className="header container-fluid navbar w-100 fixed-bottom" id="mobilenav">
     <ul className="navbar-nav navbar-expand-sm navul2">
       <li className="nav-item navitem">
-        <a className="nav-link px-2" ><span className="bi bi-house-door" /> Home</a>
+        <Link to="/" className="nav-link px-2" ><span className="bi bi-house-door"></span>Home</Link>
       </li>
 
       <li className="nav-item navitem">
@@ -130,7 +131,7 @@ const Header = () => {
             <div className="row">
               <div className="cols-12">
                 <label htmlFor="username" className="form-label">User Name:</label>
-                <input className="form-control" form="lform" type="text" name="username" id="username" defaultValue required />
+                <input className="form-control" form="lform" type="text" name="username" id="username"  required />
                 <div className="invalid-feedback">
                   Username can't be empty!
                 </div>
@@ -138,7 +139,7 @@ const Header = () => {
               <div className="col-12">
                 <label htmlFor="password" className="form-label">Password:</label>
                 <div className="input-group">
-                  <input className="form-control" form="lform" type="password" name="password" id="password" defaultValue required />
+                  <input className="form-control" form="lform" type="password" name="password" id="password"  required />
                   <span className="input-group-text bi bi-eye-fill" style={{"cursor":"pointer"}} title="show password" id="showPass" />
                   <div className="invalid-feedback">
                     Password required!
@@ -159,12 +160,12 @@ const Header = () => {
             <input type="checkbox" form="lform" className="form-check-input" name="remember" id="remember" />
             <label htmlFor="remember" className="form-check-label">Remember Me</label>
             <div className="text-center mt-3">
-              <input type="submit" form="lform" className="btn btn-md btn-info m-auto w-100" defaultValue="Log in" />
+              <input type="submit" form="lform" className="btn btn-md btn-info m-auto w-100"  />
             </div>
           </form>
           <div className="text-center mt-2">
             <p>
-              forgot password? <a style={{WebkitTextDecoration:"none",textDecoration:"none"}}>Click Here</a> to reset!
+              forgot password? <a style={{WebkitTextDecoration:"none",textDecoration:"none"}} href="#">Click Here</a> to reset!
             </p>
           </div>
         </div>
@@ -189,14 +190,14 @@ const Header = () => {
             <div className="row">
               <div className="col-6">
                 <label htmlFor="Fname" className="form-label">First Name:</label>
-                <input className="form-control" form="regform" type="text" name="Fname" id="Fname" defaultValue required />
+                <input className="form-control" form="regform" type="text" name="Fname" id="Fname"  required />
                 <div className="invalid-feedback">
                   Write your first Name!
                 </div>
               </div>
               <div className="col-6">
                 <label htmlFor="Lname" className="form-label">Last Name:</label>
-                <input className="form-control" form="regform" type="text" name="Lname" id="Lname" defaultValue required />
+                <input className="form-control" form="regform" type="text" name="Lname" id="Lname"  required />
                 <div className="invalid-feedback">
                   Last name is required!
                 </div>
@@ -205,7 +206,7 @@ const Header = () => {
                 <label htmlFor="username" className="form-label">User Name:</label>
                 <div className="input-group">
                   <span className="input-group-text">@</span>
-                  <input className="form-control" form="regform" type="text" name="username" id="username" defaultValue required />
+                  <input className="form-control" form="regform" type="text" name="username" id="username"  required />
                   <div className="invalid-feedback">
                     Username can't be empty!
                   </div>
@@ -213,14 +214,14 @@ const Header = () => {
               </div>
               <div className="col-12">
                 <label htmlFor="Email" className="form-label">Email :</label>
-                <input className="form-control" form="regform" type="email" name="Email" id="Email" defaultValue required />
+                <input className="form-control" form="regform" type="email" name="Email" id="Email"  required />
                 <div className="invalid-feedback">
                   email address is required!
                 </div>	
               </div>
               <div className="col-12">
                 <label htmlFor="password" className="form-label">Password:</label>
-                <input className="form-control" form="regform" type="password" name="password" id="password" defaultValue required />
+                <input className="form-control" form="regform" type="password" name="password" id="password"  required />
                 <div className="invalid-feedback">
                   Password required!
                 </div>
@@ -229,7 +230,7 @@ const Header = () => {
             <input type="checkbox" form="regform" className="form-check-input" name="remember" id="remember2" />
             <label htmlFor="remember2" className="form-check-label">Remember Me</label>
             <div className="text-center mt-3">
-              <input type="submit" form="regform" className="btn btn-md btn-info m-auto w-100" defaultValue="Register" />
+              <input type="submit" form="regform" className="btn btn-md btn-info m-auto w-100"  />
             </div>
           </form>
         </div>

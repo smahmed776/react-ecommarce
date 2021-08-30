@@ -90,7 +90,7 @@
 }
 
 
-.navitem a {
+.navitem a:not(.cbutton) {
 	color: rgb(0, 0, 0);
 	font-size: 1rem;
 	text-decoration: none;
@@ -98,7 +98,7 @@
 	transition: border-bottom .6s ease;
 	
 }
-.navitem a::after {
+.navitem a:not(.cbutton)::after {
 	content: '';
 	display: block;
 	border-bottom: 1px solid black;
@@ -107,7 +107,7 @@
 	transform-origin: 0% 50%;
 }
 
-.navitem a:hover::after {
+.navitem a:not(.cbutton):hover::after {
 	transform: scaleX(1);
 }
 .navitem a:hover {
@@ -257,9 +257,7 @@ this is media min width of 576px
 	.col img {
 		height: 176px;
 	}
-	.Mbutton {
-		visibility: hidden;
-	}
+
 }
 
 
@@ -303,7 +301,7 @@ this is media min width of 576px
 		flex-direction: column;
 		align-items: center;
 	}
-	.navitem a {
+	.navitem a:not(.cbutton){
 		color: rgb(0, 0, 0);
 		font-size: 13px;
 		text-decoration: none;
@@ -314,7 +312,7 @@ this is media min width of 576px
 		text-align: center;
 	
 	}
-	.navitem a:hover {
+	.navitem a:not(.cbutton):hover {
 		color: currentColor;
 		font-size: 13px;
 		text-decoration: none;

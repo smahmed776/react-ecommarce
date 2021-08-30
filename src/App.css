@@ -22,6 +22,35 @@
   opacity: 1!important;
 }
 
+
+div.rr{
+	position: relative;
+	min-height: 60vh;
+}
+
+.minheight {
+	min-height: 70vh;
+}
+
+.loading {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 1;
+	width: 120px;
+	height: 120px;
+	margin: -76px 0 0 -76px;
+	border: 16px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 16px solid #3498db;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+	
+}
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
 /* this is trending  */
 
 div.marketing {
@@ -44,37 +73,35 @@ div.trending .col {
     position: relative;
     height: 368px;
     max-height: 396px;
-    overflow: hidden;
+
     transition: all .7s ease;
 	
 }
 
 
-div.trending .col:hover {
+/* div.trending .col:hover {
 	box-shadow: 0rem 0 0.9rem #888888 !important;
 	border-radius: 12px;
 	border: 1px solid rgb(24, 24, 24);
-}
+} */
 
 div.trending .col:hover .pimg{
 	transform: scale(1.2, 1.3);
 }
-div.trending .col:hover .itemHover{
-	opacity: 1;
-	cursor: pointer;
-}
 
-div.trending div.pbody {
+
+div.pbody {
 	max-height: 70%;
-	height: 214px;
-	width: 100%;
-	overflow: hidden;
-	position: relative;
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+    position: relative;
+    padding: .5rem 1.5rem;
 }
 
-div.trending div.pbody .pimg{
-	height: 100%;
-	width: 100%;
+div.pbody .pimg{
+	height: 135px;
+	width: 112px;
 	transition: transform 0.8s ease;
 	
 }
@@ -132,46 +159,37 @@ div.rr {
 }
 
 div.rr .col {
-	width: 19.3%;
-    margin-right: 6px!important;
-    margin-bottom: 1.5rem!important;
+	margin-bottom: 1.5rem!important;
     background-color: white;
-	position: relative;
-	height: fit-content;
-	max-height: 395px;
-	overflow: hidden;
-	transition: all .7s ease;
-	
+    position: relative;
+    height: -moz-fit-content;
+    height: fit-content;
+    max-height: 495px;
+    overflow: hidden;
+    transition: all .7s ease;
 }
 
-div.rr .col:hover {
-	box-shadow: 0rem 0 0.9rem #888888 !important;
+/* div.rr .col:hover {
+	box-shadow: 0rem 0 0.9rem #888888;
 	border-radius: 12px;
 	border: 1px solid rgb(24, 24, 24);
-}
+} */
 
 div.rr .col:hover .pimg{
 transform: scale(1.2, 1.3);
 }
-div.rr .col:hover .itemHover{
+/* div.rr .col:hover .itemHover{
 	opacity: 1;
 	cursor: pointer;
-}
+} */
 
-div.rr div.pbody {
-	max-height: 58%;
-	height: 216px;
-	width: 100%;
+.pname p {
 	overflow: hidden;
-	position: relative;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
-div.pbody .pimg{
-	height: 216px;
-	width: 218px;
-	transition: transform 0.8s ease;
-	
-}
+
 
 
 .itemimg {
@@ -322,7 +340,7 @@ hr {
 		flex-direction: column;
 		align-items: center;
 	}
-	.navitem a {
+	.navitem a:not(.cbutton) {
 		color: rgb(0, 0, 0);
 		font-size: 13px;
 		text-decoration: none;
@@ -435,24 +453,24 @@ hr {
 	.pbody {
 		display: none;
 	}
-
+/* 
   div.trending .col {
     box-shadow: 0rem 0 0.9rem #888888 !important;
 		border-radius: 12px;
-		/* border: 1px solid rgb(24, 24, 24); */
+
 		margin-right: 12px!important;
 		background-color: white;
 		margin-left: 0!important;
 		margin-bottom: 1.5rem!important;
-		/* border-radius: 15px; */
+	
 		position: relative;
 		height: 358px;
     max-height: 390px;
 		overflow: hidden;
 		flex: 0 0 auto;
-		/* width: 46%; */
+
 		padding: 10px 0 0 0;
-  }
+  } */
 
   div.trending div.itemimg{
     max-height: 35%;
@@ -520,21 +538,14 @@ hr {
 	}
 
 	div.rr .col {
-		box-shadow: 0rem 0 0.9rem #888888 !important;
 		border-radius: 12px;
-		/* border: 1px solid rgb(24, 24, 24); */
-		margin-right: 12px!important;
 		background-color: white;
-		margin-left: 0!important;
-		margin-bottom: 1.5rem!important;
-		/* border-radius: 15px; */
 		position: relative;
 		max-height: 395px;
+		height: -moz-fit-content;
 		height: fit-content;
 		overflow: hidden;
-		flex: 0 0 auto;
-		width: 46%;
-		padding: 10px 0 0 0;
+		padding-top: .5rem;
 	}
 
 	div.rr div.card-body {
@@ -546,6 +557,8 @@ hr {
 
 	div.rr .col:hover {
 		border: 0;
+		box-shadow: none;
+		border-radius: 0;
 	}
 	div.rr .col:hover .pimg {
 		transform: scale(1, 1);
@@ -657,8 +670,8 @@ hr {
 	left: 50%; /* Center the snackbar */
 	bottom: 30px; /* 30px from the bottom */
   }
-  #snackbar.showtoast {
-	display: block; /* Show the snackbar */
+  div.showtoast {
+	display: block!important; /* Show the snackbar */
 	/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
 	However, delay the fade out process for 2.5 seconds */
 	-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
@@ -729,4 +742,25 @@ table tr{
 }
 table tr td{
 	padding-left: 1rem!important;
+}
+
+
+.cbutton {
+	transition: none;
+	
+}
+.cbutton::after{
+	display: none!important;
+}
+
+.pbody{
+	position: relative;
+}
+.pbody .discount {
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 3;
 }

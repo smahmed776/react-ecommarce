@@ -1,6 +1,9 @@
 import {ACTIONS} from './CartItemContext'
-
+let storage = cartitem => {
+    localStorage.setItem("cart", JSON.stringify(cartitem.length > 0 ? cartitem : []));
+}
 export const sumItems = (cartItem) => {
+    storage(cartItem);
     let itemCount = cartItem.reduce((total, item) => total + item.quantity, 0);
     let total = cartItem.reduce((total, item) => total + item.quantity * item.price, 0)
     return {itemCount, total}
@@ -15,7 +18,8 @@ export const CartReducer = (state, action) => {
                 ...sumItems(state.cartItem)
             }
             case ACTIONS.DECREASE:
-                state.cartItem[state.cartItem.findIndex(state => state.sno === action.payload.sno)].quantity--
+                state.cartItem[state.cartItem.findIndex(state => state.sno === action.payload.sno)].quantity === 1? console.log('cant decrease')
+                 : state.cartItem[state.cartItem.findIndex(state => state.sno === action.payload.sno)].quantity--
                 return {
                     ...state,
                     ...sumItems(state.cartItem)

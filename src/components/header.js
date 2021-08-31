@@ -14,11 +14,10 @@ const Header = () => {
   const [isUser, setIsUser] = useContext(IsAuthContext);
   console.log(isUser[0].isUser)
 
-  const UserObj = [
-    {
+  const UserObj = user[0].name?  [{
       name: user[user.findIndex(item => item.isUser=== true)].name
-    }
-  ]
+    }] : null;
+
   const logout = (e) => {
     e.preventDefault();
     console.log(isUser)

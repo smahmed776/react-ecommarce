@@ -283,6 +283,11 @@ hr {
   .prevbtn, .nextbtn{
     width: 15%;
   }
+  .nav-item {
+	color: black;
+  height: 85%;
+  width: 20%;
+}
   .prevbtn{
     right: 19%;
   }
@@ -301,8 +306,13 @@ hr {
 	}
 
   #mobilenav {
-		display: block;
-		border-top: 1px solid rgb(207, 207, 207);
+	display: block;
+    border-top: 1px solid rgb(207, 207, 207);
+    height: 10vh;
+    padding: .8rem 0rem;
+
+    width: 100vw;
+    margin: 0 0;
 	}
 	.header {
 		background-color: rgb(247, 247, 247);
@@ -332,7 +342,7 @@ hr {
 		width: 100%;
 		justify-content: center;
 		align-items: center;
-		height: 50px;
+		height: 100%;
 	}
 
 	.nav-link {
@@ -342,12 +352,11 @@ hr {
 	}
 	.navitem a:not(.cbutton) {
 		color: rgb(0, 0, 0);
-		font-size: 13px;
+		font-size: 11px;
 		text-decoration: none;
-		padding: 0px 8px!important;
 		border: none;
 		/* border-bottom: 1px solid #bbbbbbc7; */
-		margin-left: 10px;
+		margin-left: 0!important;
 		text-align: center;
 	
 	}
@@ -361,7 +370,7 @@ hr {
 	}
 
 	#btnnav {
-		padding: 3px 0px 0 20px;
+		padding: 3px 0px 0 0;
 	}
 
 	.btntoggles {
@@ -693,6 +702,12 @@ hr {
 
   .nav-item {
 	  color: black;
+  }
+  .nav-item a:not(.cbutton){
+	  color: black;
+	  padding-left: 1.5rem!important;
+	  padding-right: 1.5rem!important;
+	  
   }
 
   .dropup .dropdown-toggle::after {

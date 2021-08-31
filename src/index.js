@@ -6,6 +6,7 @@ import { HashRouter } from 'react-router-dom';
 import { CartItemProvider } from "./components/CartItemContext";
 import {  ItemProvider, RecipeProvider, TrendingProvider } from "./components/itemContext";
 import reportWebVitals from './reportWebVitals';
+import { AuthContextProvider, IsAuthContextProvider } from './components/auth/authContext';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,9 +15,12 @@ ReactDOM.render(
         <ItemProvider>
           <RecipeProvider>
             <TrendingProvider>
-              
-                <App />
-              
+              <AuthContextProvider>
+                <IsAuthContextProvider>
+                  <App />
+                </IsAuthContextProvider>
+              </AuthContextProvider>
+
             </TrendingProvider>
           </RecipeProvider>
         </ItemProvider>

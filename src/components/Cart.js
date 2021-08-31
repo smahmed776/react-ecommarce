@@ -80,12 +80,12 @@ const Cart = (props) => {
                   data-bs-target="#dropdown2"
                   role="button"           
                   aria-controls="dropdown2" 
-                  style={{"padding":"4px 8px"}} 
+                  style={{padding:"21px 8px!important"}} 
                   >
-                    <span className="bi bi-cart4" style={{fontSize:"21px",paddingRight:"5px", justifyContent:"flex-start", position:"relative"}}>
+                    <span className="bi bi-cart4" style={{fontSize:"17px",paddingRight:"5px", justifyContent:"flex-start", position:"relative"}}>
                         <span className={cartItem.length? "bage bg-primary rounded-pill cart" : "bage bg-danger rounded-pill cart"}   style={{position:"absolute",top:"0",right:"0"}} id="cartPill2">{itemCount}</span>
                     </span>
-                    <span style={{marginTop:"-8px"}}>Cart</span>
+                    <span style={{marginBottom:"7px"}}>Cart</span>
                 </a>
                 <div className="offcanvas offcanvas-end " tabIndex="-1" id="dropdown2" aria-labelledby="dropdown2Label">
                     {cartItem.length?

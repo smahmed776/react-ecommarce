@@ -90,14 +90,7 @@
 }
 
 
-.navitem a:not(.cbutton) {
-	color: rgb(0, 0, 0);
-	font-size: 1rem;
-	text-decoration: none;
-	margin-left: 28px;
-	transition: border-bottom .6s ease;
-	
-}
+
 .navitem a:not(.cbutton)::after {
 	content: '';
 	display: block;
@@ -301,17 +294,7 @@ this is media min width of 576px
 		flex-direction: column;
 		align-items: center;
 	}
-	.navitem a:not(.cbutton){
-		color: rgb(0, 0, 0);
-		font-size: 13px;
-		text-decoration: none;
-		padding: 0px 8px!important;
-		border: none;
-		/* border-bottom: 1px solid #bbbbbbc7; */
-		margin-left: 10px;
-		text-align: center;
 	
-	}
 	.navitem a:not(.cbutton):hover {
 		color: currentColor;
 		font-size: 13px;

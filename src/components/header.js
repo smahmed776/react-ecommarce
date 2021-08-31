@@ -14,9 +14,9 @@ const Header = () => {
   const [isUser, setIsUser] = useContext(IsAuthContext);
   console.log(isUser[0].isUser)
 
-  const UserObj = user?  [{
-      name: user[user.findIndex(item => item.isUser=== true)].name
-    }] : null;
+  // const UserObj = user?  [{
+  //     name: user[user.findIndex(item => item.isUser === true)].name
+  //   }] : null;
 
   const logout = (e) => {
     e.preventDefault();
@@ -75,7 +75,7 @@ const Header = () => {
                           isUser[0].isUser? 
                         <>
                         <li className="nav-item navitem">
-                            <p className="nav-link px-2" >{`Hi, ${UserObj[0].name}`}</p>
+                            <p className="nav-link px-2" >{`Hi, User`}</p>
                             
                         </li>
                         <li className="nav-item navitem">
@@ -122,7 +122,7 @@ const Header = () => {
       <li className="nav-item navitem btn-group">
        <div>
        <p className=" nav-link btn px-0 py-0 text-dark mb-0" style={{ padding: "0 !important", fontSize: ".6rem"}}><span className="bi bi-person-circle" ></span>
-         {`HI, ${UserObj[0].name}`}
+         {`HI,  User`}
         </p> 
         <a onClick={e => logout(e)}>Log out</a>
        </div>

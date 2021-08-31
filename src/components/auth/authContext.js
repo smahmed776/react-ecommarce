@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext} from "react";
+import React, { useState, createContext} from "react";
 
 export const AuthContext = createContext();
 export const IsAuthContext = createContext();
@@ -6,14 +6,11 @@ export const IsAuthContext = createContext();
 
 export const AuthContextProvider = ({children}) => {
 
-    const [user, setUser] = useState([]);
+    const [user, setUser] = useState(localStorage.getItem('auth')? JSON.parse(localStorage.getItem('auth')): []);
     // const [Name, setName] = useState("");
     // const [email, setemail] = useState("");
     // const [password, setpassword] = useState("");
 
-    useEffect(()=>{
-        setUser(localStorage.getItem('auth')? JSON.parse(localStorage.getItem('auth')): [{name: "admin", isUser: true}]);
-    }, [])
 
     return (
         <AuthContext.Provider value={[user, setUser]}>

@@ -14,7 +14,7 @@ const Header = () => {
   const [isUser, setIsUser] = useContext(IsAuthContext);
   console.log(isUser[0].isUser)
 
-  const UserObj = user[0].name?  [{
+  const UserObj = user?  [{
       name: user[user.findIndex(item => item.isUser=== true)].name
     }] : null;
 

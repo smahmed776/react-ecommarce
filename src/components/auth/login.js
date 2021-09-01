@@ -27,14 +27,12 @@ const Login = () => {
               ])
               console.log(isUser);
               
-            } else {
+            } else if(user.find(item => email === item.email || password === item.password)) {
               alert('username and password does not match')
-              setIsUser([
-                {
-                  isUser:  user[user.findIndex(item => email === item.email && password === item.password)].isUser
-                }
-              ])
+
               console.log(isUser);
+            } else {
+              alert("User not found! Please register first..")
             }
            
             // console.log(" User Set");

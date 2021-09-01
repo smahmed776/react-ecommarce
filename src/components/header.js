@@ -10,7 +10,7 @@ import './header.css'
 const Header = () => {
 
 
-  const [user] = useContext(AuthContext);
+  const [user, setUser] = useContext(AuthContext);
   const [isUser, setIsUser] = useContext(IsAuthContext);
   console.log(isUser[0].isUser)
 
@@ -20,15 +20,35 @@ const Header = () => {
 
   const logout = (e) => {
     e.preventDefault();
-    console.log(isUser)
-    setIsUser([{
-      isUser: false
-    }])
+    console.log(userObj())
+    
+
+      if(user.find(item => item.isUser === true)){
+
+        user[user.findIndex(item => item.isUser === true)].isUser = false
+        setUser([...user])
+
+      }
   }
 
-  useEffect(() => {
-    localStorage.setItem("isLogged", JSON.stringify(isUser))
-  }, [isUser])
+  const userObj = ()=> {
+    if (user.length <= 0) {
+      return false
+      } else if (user.length >= 0) {
+
+        if(user.find(item => item.isUser === true)){
+          return  {
+            name: user[user.findIndex(item => item.isUser === true)].name
+          }
+        } else {
+          return false
+        } 
+      }
+  }
+
+  // useEffect(() => {
+  //   localStorage.setItem("isLogged", JSON.stringify(isUser))
+  // }, [isUser])
 
 
     // header change after scroll
@@ -72,10 +92,10 @@ const Header = () => {
                             <Link to="/" className="nav-link px-2" >Home</Link>
                         </li>
                         {
-                          isUser[0].isUser? 
+                          userObj()? 
                         <>
                         <li className="nav-item navitem">
-                            <p className="nav-link px-2" >{`Hi, User`}</p>
+                            <p className="nav-link px-2" >{`Hi, ${userObj().name}`}</p>
                             
                         </li>
                         <li className="nav-item navitem">
@@ -118,11 +138,11 @@ const Header = () => {
         <Cart mobile={true}/>
       </li>
       {
-      isUser[0].isUser? 
+      userObj()? 
       <li className="nav-item navitem btn-group">
        <div>
        <p className=" nav-link btn px-0 py-0 text-dark mb-0" style={{ padding: "0 !important", fontSize: ".6rem"}}><span className="bi bi-person-circle" ></span>
-         {`HI,  User`}
+         {`HI,  ${userObj().name}`}
         </p> 
         <a onClick={e => logout(e)}>Log out</a>
        </div>
@@ -167,6 +187,7 @@ const Header = () => {
   <SignUp />
 </div>        
     </>
-                )}
+                )
+}
 
 export default Header;

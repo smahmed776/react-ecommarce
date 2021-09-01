@@ -25,7 +25,7 @@ const NextButton = (props)=> {
 
 const carousel = () => {
     return (
-    <div className="my-2 ms-2">            
+    <div className="container">            
         <Slider infinite={true}
                 autoplay
                 dots
@@ -40,13 +40,13 @@ const carousel = () => {
                 }}
         >
             <div className="">
-               <img className="" width="100%" height="170px" src="./img/ad1.jpg" aria-hidden="true" focusable="false" alt="" />
+               <img className="" width="100%" height="260px" src="./img/ad1.jpg" aria-hidden="true" focusable="false" alt="" />
             </div>
             <div className="">
-               <img className="" width="100%" height="170px" src="./img/ad2.jpg" aria-hidden="true" focusable="false" alt="" />
+               <img className="" width="100%" height="260px" src="./img/ad2.jpg" aria-hidden="true" focusable="false" alt="" />
             </div>
             <div className="">
-               <img className="" width="100%" height="170px" src="img/ad3.jpg" aria-hidden="true" focusable="false" alt="" />
+               <img className="" width="100%" height="260px" src="img/ad3.jpg" aria-hidden="true" focusable="false" alt="" />
             </div>
            
 

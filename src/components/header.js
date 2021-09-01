@@ -61,29 +61,29 @@ const Header = () => {
                     </h2>
                 </div>
                 {/*=================================================================================
-				 search bar 
-			======================================================================================*/}
+				            search bar 
+			            ======================================================================================*/}
                 <form className="form-inline float-right me-auto searchform" id="searchform" >
-                    <div className="input-group" style={{ WebkitFlexWrap: "nowrap", msFlexWrap: "nowrap", flexWrap: "nowrap" }}>
+                    <div className="input-group" >
                         <div className="form-floating">
                             <input className="form-control" type="search" id="searchfloating" name="search" placeholder="Search for your products" required title="hi" style={{ "height": "43px" }} />
                             <label htmlFor="searchfloating" className="searchlabel" style={{ "top": "-7px" }}>Search</label>
                         </div>
-                        <span className="input-group-text" style={{ padding: "0", backgroundColor: "#198754", borderTopRightRadius: "5px", borderTopLeftRadius: "0px", borderBottomLeftRadius: "0px", borderBottomRightRadius: "5px" }} id="inputGroupPrepend">
-                            <input type="submit" name="Search" className="btn btn-md" placeholder="Search" value="" />
-                            <span className="bi bi-search text-white" style={{ margin: "0 12px 0 -12px" }} />
-                        </span>
+                        <div className="input-group-text" style={{ padding: "0", borderTopRightRadius: "5px", borderTopLeftRadius: "0px", borderBottomLeftRadius: "0px", borderBottomRightRadius: "5px" }} id="inputGroupPrepend">
+                            <button type="submit" name="Search" className="btn btn-success w-100 h-100" placeholder="Search"> 
+                              <span className="bi bi-search text-white" style={{ margin: "0 12px 0 -12px" }}></span>
+                            </button>
+                        </div>
                     </div>
                 </form>
-                <button className="navbar-toggler navbar-light btntoggle" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                    {/* <span class="navbar-toggler-icon"></span> */}
+                {/* <button className="navbar-toggler navbar-light btntoggle" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
                     <div  style={{ "display": "inline-block", "cursor": "pointer" }}>
                         <div className="bar1" />
                         <div className="bar2" />
                         <div className="bar3" />
                     </div>
-                </button>
-                <div className="collapse navbar-collapse" id="collapsibleNavbar" style={{ WebkitBoxPack: "end", WebkitJustifyContent: "flex-end", msFlexPack: "end", justifyContent: "flex-end", WebkitAlignItems: "center", WebkitBoxAlign: "center", msFlexAlign: "center", alingnItems: "center" }}>
+                </button> */}
+                <div className="collapse navbar-collapse" id="collapsibleNavbar" style={{ width: "43%", WebkitBoxPack: "end", WebkitJustifyContent: "flex-end", msFlexPack: "end", justifyContent: "flex-end", WebkitAlignItems: "center", WebkitBoxAlign: "center", msFlexAlign: "center", alingnItems: "center" }}>
                     <ul className="navbar-nav navul">
                         <li className="nav-item navitem">
                             <a className="nav-link px-2" >About Us</a>

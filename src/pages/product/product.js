@@ -3,17 +3,20 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import "./product.css"
+import { useCart } from '../../components/cartHook';
 
 
 
 const Product = ({ location }) => {
+    const {addItem} = useCart();
     const [recipeItem, setRecipeItem] = useState([]);
     const hash= location.hash;
     const str = location.search;
     const idstr = str.toString().replace("?id=", "")
     const [idx, setIdx] = useState(idstr);
     const [itemboolean, setItemboolean] = useState(false);
-    
+    const [obj, setObj] = useState({});
+    console.log(obj);
     async function requestApi(id){
         if(document.getElementById('productload')) {
             document.getElementById('productload').classList.add("loading","min-height","d-block")
@@ -26,16 +29,40 @@ const Product = ({ location }) => {
         }
         setRecipeItem([res.recipe]);
 
+       
+
     }
     
+    // useEffect(()=>{
+    //     if(recipeItem > 0){
+
+    //         setObj(
+    //            { itemName: recipeItem[0].label, sno: idx, profileURL: recipeItem[0].image, price: parseInt(recipeItem[0].totalWeight), url: recipeItem[0].uri, quantity: 1 }
+    //        ) 
+    //        console.log("setobj working!!");
+    //     }
+    // }, [recipeItem]);
+
     useEffect(()=>{
+        console.log("run time");
+        if(recipeItem.length > 0){
+            setObj(
+               { itemName: recipeItem[0].label, sno: idx, profileURL: recipeItem[0].image, price: parseInt(recipeItem[0].totalWeight), url: recipeItem[0].uri, quantity: 1 }
+           ) 
+           console.log(recipeItem);
+        }
+        
         if(hash && idx){
             setItemboolean(!itemboolean)
             console.log(itemboolean)
         } else {
-            requestApi(idx);
+            if(recipeItem <= 0){
+
+                requestApi(idx);
+                console.log("reques accepted");
+            }
         }
-    }, [idx]);
+    }, [idx, recipeItem]);
     const arr = ["img/mob1.jpg", "img/mob2.jpg", "img/download.jpg", "img/download (1).jpg" ]
     const imgArr = [
         { image:  "img/iPhone/iphone12.jpg" , label: "this is label"}
@@ -43,7 +70,7 @@ const Product = ({ location }) => {
 
     return (
         <div className="container-fluid pt-5 ps-1 pb-3">
-            <div className="row row-cols-1 row-cols-sm-2" style={{position: "relative", minHeight: "75vh"}}>
+            <div className="row row-cols-1 row-cols-sm-2 g-4 g-md-2 g-lg-1" style={{position: "relative", minHeight: "75vh"}}>
                 <div id="productload" style={{display: "none"}}></div>
                 <div className="col  h-100 ">
                     <Slider 
@@ -76,8 +103,12 @@ const Product = ({ location }) => {
                         )
                         }
                     </Slider>
+                    <button className="btn btn-danger w-100 mx-1 mx-0" onClick={()=> addItem(obj)} ><span className="bi bi-cart4"> </span>Add to Cart</button>
                     
                 </div>
+
+
+
                 <div className="col ">
                     {
                         itemboolean?
@@ -86,7 +117,28 @@ const Product = ({ location }) => {
                         ))
                         :
                 recipeItem.map(item => (
-                    <h1 key={item.label}>{item.label}</h1>
+                    <div key={item.label}>
+
+                        <h1 key={item.label}>{item.label}</h1>
+                        <h5>
+                            <span className="bi bi-star-fill text-warning"></span>
+                            <span className="bi bi-star-fill text-warning"></span>
+                            <span className="bi bi-star-fill text-warning"></span>
+                            <span className="bi bi-star-fill text-warning"></span>
+                            <span className="bi bi-star-fill"></span>
+                        </h5>
+                        <h6>Price: {parseInt(item.totalWeight)} Taka</h6>
+                        <div className="row">
+                            <div className="col-2">Description:</div>
+                            <div className="col-10">
+                                <ul>{item.ingredientLines.map(it =>(
+                                    <li>{it}</li>
+
+                                ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 ))
                     }
                 </div>

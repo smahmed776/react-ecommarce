@@ -1,27 +1,28 @@
 {
   "files": {
-    "main.css": "/react-ecommarce/static/css/main.548f80cd.chunk.css",
-    "main.js": "/react-ecommarce/static/js/main.3e899a57.chunk.js",
-    "main.js.map": "/react-ecommarce/static/js/main.3e899a57.chunk.js.map",
-    "runtime-main.js": "/react-ecommarce/static/js/runtime-main.387b8063.js",
-    "runtime-main.js.map": "/react-ecommarce/static/js/runtime-main.387b8063.js.map",
-    "static/css/2.a79d6a3c.chunk.css": "/react-ecommarce/static/css/2.a79d6a3c.chunk.css",
-    "static/js/2.87428ace.chunk.js": "/react-ecommarce/static/js/2.87428ace.chunk.js",
-    "static/js/2.87428ace.chunk.js.map": "/react-ecommarce/static/js/2.87428ace.chunk.js.map",
-    "static/js/3.dd18b7bf.chunk.js": "/react-ecommarce/static/js/3.dd18b7bf.chunk.js",
-    "static/js/3.dd18b7bf.chunk.js.map": "/react-ecommarce/static/js/3.dd18b7bf.chunk.js.map",
+    "main.css": "/react-ecommarce/static/css/main.062d348e.chunk.css",
+    "main.js": "/react-ecommarce/static/js/main.8871b9cd.chunk.js",
+    "main.js.map": "/react-ecommarce/static/js/main.8871b9cd.chunk.js.map",
+    "runtime-main.js": "/react-ecommarce/static/js/runtime-main.3487fd4c.js",
+    "runtime-main.js.map": "/react-ecommarce/static/js/runtime-main.3487fd4c.js.map",
+    "static/css/2.300926ef.chunk.css": "/react-ecommarce/static/css/2.300926ef.chunk.css",
+    "static/js/2.85804768.chunk.js": "/react-ecommarce/static/js/2.85804768.chunk.js",
+    "static/js/2.85804768.chunk.js.map": "/react-ecommarce/static/js/2.85804768.chunk.js.map",
+    "static/js/3.3b658f06.chunk.js": "/react-ecommarce/static/js/3.3b658f06.chunk.js",
+    "static/js/3.3b658f06.chunk.js.map": "/react-ecommarce/static/js/3.3b658f06.chunk.js.map",
     "index.html": "/react-ecommarce/index.html",
-    "static/css/2.a79d6a3c.chunk.css.map": "/react-ecommarce/static/css/2.a79d6a3c.chunk.css.map",
-    "static/css/main.548f80cd.chunk.css.map": "/react-ecommarce/static/css/main.548f80cd.chunk.css.map",
-    "static/js/2.87428ace.chunk.js.LICENSE.txt": "/react-ecommarce/static/js/2.87428ace.chunk.js.LICENSE.txt",
+    "static/css/2.300926ef.chunk.css.map": "/react-ecommarce/static/css/2.300926ef.chunk.css.map",
+    "static/css/main.062d348e.chunk.css.map": "/react-ecommarce/static/css/main.062d348e.chunk.css.map",
+    "static/js/2.85804768.chunk.js.LICENSE.txt": "/react-ecommarce/static/js/2.85804768.chunk.js.LICENSE.txt",
     "static/media/index.css": "/react-ecommarce/static/media/solaimanlipi.7c6a8fad.ttf",
+    "static/media/bootstrap-icons.css": "/react-ecommarce/static/media/bootstrap-icons.dfd0ea12.woff2",
     "static/media/slick-theme.css": "/react-ecommarce/static/media/slick.c94f7671.ttf"
   },
   "entrypoints": [
-    "static/js/runtime-main.387b8063.js",
-    "static/css/2.a79d6a3c.chunk.css",
-    "static/js/2.87428ace.chunk.js",
-    "static/css/main.548f80cd.chunk.css",
-    "static/js/main.3e899a57.chunk.js"
+    "static/js/runtime-main.3487fd4c.js",
+    "static/css/2.300926ef.chunk.css",
+    "static/js/2.85804768.chunk.js",
+    "static/css/main.062d348e.chunk.css",
+    "static/js/main.8871b9cd.chunk.js"
   ]
 }

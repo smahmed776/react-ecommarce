@@ -169,7 +169,7 @@ const Cart = (props) => {
                             <div className="cartdrop ps-4">
                                 {cartItem.map(c => (
                                     <div className="p-2 mt-2" key={c.id}>
-                                        <h5 key={c.id}>{c.itemName}</h5>
+                                        <h5 key={c.id} style={{whiteSpace: "nowrap", textOverflow: "ellipsis", overflow: "hidden", width: "90%"}}>{c.itemName}</h5>
                                         <img className="mb-2" src={c.profileURL} alt={c.name} height="55px" width="55px" />
                                         <button  className="btn bi bi-plus-circle-fill text-success" id={`p${c.id}`} data-product={c.id} onClick={()=>increase(c)}></button>
                                         <span>Quantity: {c.quantity}</span>                                                    

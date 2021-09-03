@@ -71,7 +71,7 @@ const Header = () => {
                         </div>
                         <div className="input-group-text" style={{ padding: "0", borderTopRightRadius: "5px", borderTopLeftRadius: "0px", borderBottomLeftRadius: "0px", borderBottomRightRadius: "5px" }} id="inputGroupPrepend">
                             <button type="submit" name="Search" className="btn btn-success w-100 h-100" placeholder="Search"> 
-                              <span className="bi bi-search text-white" style={{ margin: "0 12px 0 -12px" }}></span>
+                              <span className="bi bi-search text-white"></span>
                             </button>
                         </div>
                     </div>

@@ -9,143 +9,139 @@ import { useCart } from '../../components/cartHook';
 
 const Product = ({ location }) => {
     const {addItem} = useCart();
-    const [recipeItem, setRecipeItem] = useState([]);
-    const hash= location.hash;
+    const [amazoneItem, setAmazoneItem] = useState([]);
     const str = location.search;
     const idstr = str.toString().replace("?id=", "")
     const [idx, setIdx] = useState(idstr);
-    const [itemboolean, setItemboolean] = useState(false);
     const [obj, setObj] = useState({});
-    console.log(obj);
-    async function requestApi(id){
+    const [imgArr, setImgArr] = useState([]);
+
+
+
+   
+    const amazonRequest = async (id) => {
         if(document.getElementById('productload')) {
             document.getElementById('productload').classList.add("loading","min-height","d-block")
+            document.getElementById('addCartBtn').style.marginTop = '65vh'
         }
-        const req = await fetch(`https://api.edamam.com/api/recipes/v2/${id}?type=public&app_id=67b7db34&app_key=b0f94e41d66422015311373c4dcfe5b1`);
+        const req = await fetch(`https://api.scraperapi.com?api_key=ebef1c7e0ffdba97eb4c58c541012efb&url=https://www.amazon.com/dp/${id}&autoparse=true`);
         const res = await req.json();
         if(document.getElementById('productload')) {
             document.getElementById('productload').classList.remove("loading","min-height","d-block")
+            document.getElementById('addCartBtn').style.marginTop = "0";
             document.getElementById('productload').style.display= "none"
         }
-        setRecipeItem([res.recipe]);
-
-       
-
+        setAmazoneItem([res]);
+        console.log(res);
     }
     
-    // useEffect(()=>{
-    //     if(recipeItem > 0){
+    const changeMain = e => {
+        const target = e.target.src;
+        const main = document.getElementById("mainimage");
+        main.src = target;
+    }
 
-    //         setObj(
-    //            { itemName: recipeItem[0].label, sno: idx, profileURL: recipeItem[0].image, price: parseInt(recipeItem[0].totalWeight), url: recipeItem[0].uri, quantity: 1 }
-    //        ) 
-    //        console.log("setobj working!!");
-    //     }
-    // }, [recipeItem]);
 
     useEffect(()=>{
-        console.log("run time");
-        if(recipeItem.length > 0){
+
+        console.log("useeffect running");
+        if(amazoneItem.length > 0){
+            console.log(amazoneItem);
             setObj(
-               { itemName: recipeItem[0].label, sno: idx, profileURL: recipeItem[0].image, price: parseInt(recipeItem[0].totalWeight), url: recipeItem[0].uri, quantity: 1 }
+               { 
+                   itemName: amazoneItem[0].name,
+                   sno: idx, 
+                   profileURL: amazoneItem[0].images[0], 
+                   price: parseInt(amazoneItem[0].pricing), 
+                   url: amazoneItem[0].url, 
+                   quantity: 1 
+                }
            ) 
-           console.log(recipeItem);
+           
+           console.log(imgArr);
+           console.log(amazoneItem);
         }
         
-        if(hash && idx){
-            setItemboolean(!itemboolean)
-            console.log(itemboolean)
-        } else {
-            if(recipeItem <= 0){
+        if(amazoneItem <= 0){
+                amazonRequest(idx);
+                console.log("requested");
+        } 
 
-                requestApi(idx);
-                console.log("reques accepted");
-            }
-        }
-    }, [idx, recipeItem]);
-    const arr = ["img/mob1.jpg", "img/mob2.jpg", "img/download.jpg", "img/download (1).jpg" ]
-    const imgArr = [
-        { image:  "img/iPhone/iphone12.jpg" , label: "this is label"}
-    ]
+    }, [idx, amazoneItem]);
+
+
+
 
     return (
-        <div className="container-fluid pt-5 ps-1 pb-3">
-            <div className="row row-cols-1 row-cols-sm-2 g-4 g-md-2 g-lg-1" style={{position: "relative", minHeight: "75vh"}}>
-                <div id="productload" style={{display: "none"}}></div>
-                <div className="col  h-100 ">
-                    <Slider 
-                        className="custom-slick"
-                        slidesToShow={1}
-                        dots
-                        customPaging= {i => {
-                            return ( <div>
-                                        <img src={arr[i]} alt="" />
-                                     </div>)
-                                    }}
-                        dotsClass= "slick-dots custom-dots"
-                    >
-                        {
-                            
-                        itemboolean? 
-                       
-                                imgArr.map(item=> 
-                                <div key={item.label}>
-                                    <img src={item.image} alt="" />
-                                </div>
-                                )
-                        :
 
-                        recipeItem.map(item => (
-                        <div key={item.label}>
-                            <img src={item.image} alt="" />
-                        </div>
+        <div className="container-fluid pt-5 ps-1 pb-3">
+            <div className="row row-cols-1 row-cols-sm-2 g-4 g-md-2 g-lg-1" style={{position: "relative", minHeight: "100vh" }}>
+                <div id="productload" style={{display: "none", marginBottom: "2rem"}}></div>
+                <div className="col rowsticky" style={{position: "sticky", top: "15%", left: "0",}}>
+                    <div className="row justify-content-center align-items-center pe-2 rowabsolute" style={{ position: "absolute", top: "0", left: "0", width: "100%"}}>
+                        <div className="col-2 smallImage" style={{}}>
+                            {amazoneItem.length? amazoneItem[0].images.map(item=> (
+
+                                <img onClick={e => changeMain(e)} src={item} alt="" />
                             )
-                        )
+                            ): null
+                            }
+                                
+                            
+
+                        </div>
+                        <div className="col-10 m-auto pt-2 ps-2 pe-2 border rowimage" >{
+                            amazoneItem.length? 
+                            <img id="mainimage" src={amazoneItem[0].images[0]} onClick={()=> console.log(amazoneItem)} alt="" />
+                            : null
                         }
-                    </Slider>
-                    <button className="btn btn-danger w-100 mx-1 mx-0" onClick={()=> addItem(obj)} ><span className="bi bi-cart4"> </span>Add to Cart</button>
+                        </div>
+                        <div className="col">
+                            <button className="btn btn-danger w-100 mx-1 mx-0 mt-2 mb-2" id="addCartBtn" onClick={()=> addItem(obj)} ><span className="bi bi-cart4"> </span>Add to Cart</button>
+                        </div>
+                    </div>
                     
                 </div>
 
 
 
-                <div className="col ">
+                <div className="col ps-2 pe-3" style={{minHeight: "100vh"}}>
                     {
-                        itemboolean?
-                        imgArr.map(item=>(
-                            <p>{item.label}</p>
-                        ))
-                        :
-                recipeItem.map(item => (
-                    <div key={item.label}>
-
-                        <h1 key={item.label}>{item.label}</h1>
-                        <h5>
-                            <span className="bi bi-star-fill text-warning"></span>
-                            <span className="bi bi-star-fill text-warning"></span>
-                            <span className="bi bi-star-fill text-warning"></span>
-                            <span className="bi bi-star-fill text-warning"></span>
-                            <span className="bi bi-star-fill"></span>
-                        </h5>
-                        <h6>Price: {parseInt(item.totalWeight)} Taka</h6>
-                        <div className="row">
-                            <div className="col-2">Description:</div>
-                            <div className="col-10">
-                                <ul>{item.ingredientLines.map(it =>(
-                                    <li>{it}</li>
-
-                                ))}
-                                </ul>
+                        amazoneItem? 
+                        amazoneItem.map(item=>(
+                        <>
+                            <h3 key={item.name}>{item.name}</h3>
+                            <h5>
+                                <span className="bi bi-star-fill text-warning"></span>
+                                <span className="bi bi-star-fill text-warning"></span>
+                                <span className="bi bi-star-fill text-warning"></span>
+                                <span className="bi bi-star-fill text-warning"></span>
+                                <span className="bi bi-star-fill"></span>
+                            </h5>
+                            <div>
+                                <h5>Price: {item.pricing} <span className=" ms-2 text-muted text-decoration-line-through">{item.list_price}</span></h5>
                             </div>
-                        </div>
-                    </div>
-                ))
+                            <div className="row mt-1">
+                                <div className="col-12 ps-3 pe-2 pt-2 pb-2">
+                                    <p>Description: </p>
+                                    <p className="px-4">{item.small_description}</p>
+                                </div>
+                            
+                            </div>
+                        </>
+                        ))
+                        : null
                     }
+                               
                 </div>
             </div>
-            
         </div>
+               
+                    
     )
 }
 
 export default Product
+
+//trending on amazon by catagory 
+// "https://www.amazon.com/b/?node=15529609011&gb_f_deals1=enforcedCategories:172282%252C541966"

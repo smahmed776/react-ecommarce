@@ -1,40 +1,58 @@
-.custom-dots {
-    display: flex!important;
+.smallImage {
+    display: flex;
     flex-direction: column;
-    top: 10%;
-    width: 45px;
 
 }
-.custom-dots li {
+.smallImage img {
     height: 55px;
+    width: 55px;
+    margin-left: .3rem;
     margin-bottom: 1rem;
-
-  
+    object-fit: contain;
+    cursor: pointer;
+    opacity: 1;
+    filter: grayscale(0);
 }
-.custom-dots li img{
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-}
-li.slick-active img {
-    filter: grayscale(100%);
+.smallImage img:hover {
+    opacity: .7;
     border: 1px solid black;
+    filter: grayscale(100%);
 }
 
-.custom-slick img {
-    padding: .5rem 3rem;
-    margin-left: 4rem;
-    margin-right: 1rem;
-    height: 30rem;
-    width: 40vw!important;
+#mainimage {
+    height: 90%;
+    width: 100%;
+    object-fit: fill;
 }
-@media (max-width: 570px) {
-    .custom-slick img {
-        padding: .5rem 1rem;
-        margin-left: 1rem;
-        margin-right: 1rem;
-        height: 23rem;
+.rowsticky {
+    height: 100vh;
+}
+
+.rowimage {
+    height: 85vh!important;
+}
+
+@media (max-width: 576px) {
+    .smallImage {
+        flex-direction: row;
+        overflow-x: scroll;
+        width: 100%;
+    }
+    .rowabsolute {
+        flex-direction: column!important;
+        position: static!important;
+        padding: 0!important;
+    }
+    .rowsticky {
+        position: static!important;
+        margin-left: .5rem!important;
+    }
+
+    .rowimage {
+        height: 40vh!important;
         width: 100%!important;
     }
-    
+    .rowsticky {
+        height: auto;
+    }
 }

@@ -1,21 +1,35 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import {v4 as uuidv4} from 'uuid'
 
 export const Item = ({items, addItem}) => {
-
+    const productId = () =>{
+        const url = items.url;
+        const urlStr = url.toString();
+        const firstSide = urlStr.substring(urlStr.indexOf("/dp/") + 4);
+        const lastSide = firstSide.substring(firstSide.indexOf("/ref"));
+        const pid = firstSide.replace(lastSide, "");
+        return pid;
+    }
+    const addObj = {
+        ...items, itemName: items.name, profileURL: items.image, sno: productId()
+    }
+    // const str = "https://www.amazon.com/ASUS-GeForce-i7-11370H-Windows-TUF516PE-AB73/dp/B08XPC3WFQ/ref=sr_1_4?dchild=1&keywords=gaming+laptops&qid=1630669930&sr=8-4"
+    // console.log(productId(str))
+    // https://www.amazon.com/Acer-Predator-PH315-54-760S-i7-11800H-Keyboard/
 
     return (
-        <div className="col pb-2" id="top" key={items.sno}>
+        <div className="col pb-2" id="top" key={items.name}>
             <div className="itemimg">
-                <img className="pimg" src={items.profileURL} alt={items.itemName} height="80%" width="100%" />
+                <img className="pimg" src={items.image} alt={items.name} height="80%" width="100%" />
             </div>
             <div className="pname" >
-                <p className="p-0 m-0" id="itemName">{items.itemName}</p>
+                <p className="p-0 m-0" id="itemName">{items.name}</p>
                 <p className="text-muted pt-2"></p>
             </div>
             <div className="pbody">
                 <img src="img/discount.jpg" className="discount" alt="" />
-                <img className="pimg" id="lgimg" src={items.profileURL} alt={items.itemName} height="80%" width="100%" />
+                <img className="pimg" id="lgimg" src={items.image} alt={items.name} height="80%" width="100%" />
             </div>
             <div className="card-body ">
                 <div className="mt-3 m-0 ps-2">
@@ -35,13 +49,13 @@ export const Item = ({items, addItem}) => {
                 </div>
 
 
-                <Link to={`/product?id=${items.sno}#list=item`}><button className="btn btn-outline-info Mbutton mb-2 mt-1 w-100" title="See Product in detail" id="cartButton1" >Details</button></Link>
-                <button className="btn btn-outline-dark Mbutton  w-100" id={'cartButton'+items.sno}
+                <Link to={`/product?id=${productId()}#list=item`}><button className="btn btn-outline-info Mbutton mb-2 mt-1 w-100" title="See Product in detail" id="cartButton1" >Details</button></Link>
+                <button className="btn btn-outline-dark Mbutton  w-100" id={'cartButton'+items.price_string}
                  data-name={items.itemName}
                  data-src={items.profileURL}
                  data-bs-pid={items.sno}
 
-                 onClick={()=> addItem(items)}>Add to cart</button>
+                 onClick={()=> addItem(addObj)}>Add to cart</button>
             </div>
         </div>
     )

@@ -5,7 +5,6 @@ import Carousel from "./components/carousel";
 import Footer from "./components/footer";
 
 import { Route, Switch } from "react-router-dom"
-
 import './App.css';
 import Trending from "./components/Trending";
 import CheckOut from "./pages/checkout";

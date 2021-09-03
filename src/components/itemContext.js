@@ -20,7 +20,8 @@ export const ItemProvider = props => {
         if(document.getElementById('itemload')){
             document.getElementById('itemload').classList.add('loading','min-height','d-block')
         }
-        const request = await fetch("./items.json");
+        // const request = await fetch("./items.json");
+        const request = await fetch("https://api.scraperapi.com?api_key=ebef1c7e0ffdba97eb4c58c541012efb&url=https://www.amazon.com/s?k=gaming+laptops&autoparse=true");
         const response = await request.json();
         // console.log(response);
         if(document.getElementById('itemload')){
@@ -29,7 +30,7 @@ export const ItemProvider = props => {
             document.getElementById('itemload').style.display= "none";
         }
 
-        setItems(response);
+        setItems(response.results);
     }
     
     const [items, setItems] = useState([]);
@@ -86,7 +87,16 @@ export const RecipeProvider = props => {
 export const TrendingProvider = props => {
     useEffect(()=>{
         trendingRequest();
+        itemRequest();
+        console.log("working");
     }, [])
+    const itemRequest = async () => {
+        const request = await fetch("http://api.scraperapi.com?api_key=ebef1c7e0ffdba97eb4c58c541012efb&url=https://www.amazon.com/s?k=gaming+laptops&autoparse=true");
+        const response = await request.json();
+        // const json = await JSON.parse(request);
+        // setItem(json)
+        console.log(response, request);
+    }
     
     const trendingRequest = async () => {
         if(document.getElementById('trendingload')){
@@ -102,6 +112,8 @@ export const TrendingProvider = props => {
         setTrending(response);
     }
 
+    const [item, setItem] = useState([]);
+
     const [trending, setTrending] = useState([]);
     return (
         <TrendingItemContext.Provider value={[trending, setTrending]}>
@@ -110,3 +122,17 @@ export const TrendingProvider = props => {
     )
 }
 
+export const AmazonProvider = () => {
+    
+    const [item, setItem] = useState([]);
+
+    async function Request (){
+        const request = await fetch("http://api.scraperapi.com?api_key=ebef1c7e0ffdba97eb4c58c541012efb&url=https://www.amazon.com/s?k=gaming+laptops");
+        const response = await request.json();
+        console.log(response);
+    }
+    
+    useEffect(()=> {
+        Request();
+    }, [])
+}

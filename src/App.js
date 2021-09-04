@@ -22,7 +22,7 @@ function App() {
       <Switch> 
         <Route exact path="/">
           <Carousel />      
-          <Trending />
+          {/* <Trending /> */}
           <Feed />
         </Route>        
         <Route path="/product" component={Product}/>

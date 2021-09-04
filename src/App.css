@@ -107,9 +107,6 @@ div.pbody .pimg{
 }
 
 
-.itemimg {
-	display: none;
-}
 
 div.trending div.card-body {
 	height: fit-content;
@@ -168,14 +165,67 @@ div.rr .col {
     overflow: hidden;
     transition: all .7s ease;
 }
+div.newrr .col {
 
+    position: relative;
+    overflow: hidden;
+    transition: all .7s ease;
+}
+
+.itemimg {
+	height: 33%;
+	overflow: hidden;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	transition: all .7s ease;
+}
+ 
+.pimg {
+	transition: all .7s ease;
+}
+.Mbutton{
+	width: 35%;
+	height: 37px;
+	overflow: hidden;
+	transition: width .7s ease;
+}
+.Mbutton span::after{
+	content: "Add to cart";
+    display: none;
+    padding-left: 0.6rem;
+	font-size: smaller;
+}
+
+.Mbutton:hover {
+	width: 96%;
+	margin-left: -3.5rem;
+}
+.Mbutton:hover span::after {
+    display: inline;
+}
+
+.searchShow {
+	display: block!important;
+}
+/* 
+.Mbutton::after {
+	content: "Add to cart";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	opacity: 0;
+}
+.Mbutton:hover ::after{
+	opacity: 1;
+} */
 /* div.rr .col:hover {
 	box-shadow: 0rem 0 0.9rem #888888;
 	border-radius: 12px;
 	border: 1px solid rgb(24, 24, 24);
 } */
 
-div.rr .col:hover .pimg{
+div.newrr .col:hover .pimg{
 transform: scale(1.2, 1.3);
 }
 /* div.rr .col:hover .itemHover{
@@ -192,9 +242,7 @@ transform: scale(1.2, 1.3);
 
 
 
-.itemimg {
-	display: none;
-}
+
 
 div.rr div.card-body {
 	height: fit-content;
@@ -331,7 +379,7 @@ hr {
 	}
 
 	#searchfloating {
-		width: 195px;
+		width: 100%;
 	}
 
 	.showsearch {
@@ -391,7 +439,7 @@ hr {
 	}
 
 	.searchform {
-		width: 65vw;
+		width: 90vw;
 	}
 
 	.lcontainer {
@@ -434,11 +482,11 @@ hr {
 		/* padding: 0 0 2px 0; */
 	/* } */ 
 	.Mbutton {
-		width: 100%;
+		width: 33%;
 		/* padding: 5px 1px; */
 		margin-top: 5px;
 		/* margin-left: 10px; */
-		height: 30px;
+		height: 41px;
 		font-size: 14px;
 		padding: 0 0 2px 0;
 	}
@@ -453,10 +501,11 @@ hr {
 
 	
 	.pname {
-	    height: 25%;
-        text-align: center;
-        padding: 10px 5px 0px 5px;
-        width: 100%;
+		max-height: 20%;
+		text-align: center;
+		padding: 10px 10px 0px 10px;
+		width: 100%;
+		font-size: .7rem;
 	}
 
 	.pbody {
@@ -521,15 +570,16 @@ hr {
 	}		
 
 	.itemimg {
-		height: 34%;
-		overflow: hidden;
-		width: 100%;
-		display: flex;
-		justify-content: center;
+		height: 33%;
+        overflow: hidden;
+        width: 100%;
+        display: flex;
+        justify-content: center;
 	}
 	.pimg {
 		height: 100%!important;
-    width: 98px!important;
+		width: 93%!important;
+		object-fit: fill;
 	}
 	
 	.col img {
@@ -570,6 +620,9 @@ hr {
 		border-radius: 0;
 	}
 	div.rr .col:hover .pimg {
+		transform: scale(1, 1);
+	}
+	div.newrr .col:hover .pimg {
 		transform: scale(1, 1);
 	}
 

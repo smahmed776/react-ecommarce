@@ -1,13 +1,39 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useCart } from './cartHook';
-import { TrendingItemContext } from './itemContext';
+import { useCart } from './custom hooks/cartHook';
+import { TrendingItemContext } from './contexts/itemContext';
+import TrendItem from './sub components/TrendItem';
 
 const Trending = () => {
     const [trending] = useContext(TrendingItemContext);
     const {addItem} = useCart();
+
+
+    const [aitem, setAitem] = useState([]);
+
+
+    async function req (){
+        for (let i = 0; i < trending.length; i++) {
+        
+        // console.log(items)
+        aitem.push(<TrendItem items={trending[i]} addItem={addItem}/>)
+       await setAitem([...aitem])
+        
+       }
+    }
+
+    useEffect(()=>{
+        if(trending.length >= 1){
+            req();
+            // console.log(aitem);
+        } 
+    }, [trending])
+
+
+
+
 
 
     const PrevButton = (props)=> {
@@ -26,6 +52,8 @@ const Trending = () => {
             </button>
         )
     }
+
+    
 
     return (
     <div className="container  marketing my-4 pe-0" style={{position: "relative", minHeight: "55vh"}}>
@@ -83,46 +111,10 @@ const Trending = () => {
                 }
             ]}
         >
-
-                {trending.map(t=>(
-                    <div className="col pb-2" id="top" key={t.sno}>
-                        <div className="itemimg">
-                            <img className="pimg" src={t.profileURL} alt="" height="80%" width="100%" />
-                        </div>
-                        <div className="pname" >
-                            <p className="p-0 m-0" id="itemName">{t.itemName}</p>
-                            <p className="text-muted pt-2">{t.author}</p>
-                        </div>
-                        <div className="pbody">
-                            <img className="pimg" id="lgimg" src={t.profileURL} alt="" height="80%" width="100%" />
-                            
-                        </div>
-                        <div className="card-body ">
-                            <div className="mt-3 m-0 ps-2">
-                                <span className={`bi bi-star-fill ${t.firststar}`}></span>
-                                <span className={`bi bi-star-fill ${t.secondstar}`}></span>
-                                <span className={`bi bi-star-fill ${t.thirdstar}`}></span>
-                                <span className={`bi bi-star-fill ${t.fourthstar}`}></span>
-                                <span className={`bi bi-star-fill ${t.fifthstar}`}></span>
-                            </div>
-                            <div className="card-text m-0">
-                                <p className="d-flex justify-content-between px-1 my-0">
-                                    <span className="">Tk.{t.price} only</span>
-                                    <span className="bi bi-heart fav" ></span>
-                                </p>
-                            </div>
-                
-                            <button className="btn btn-outline-info Mbutton mb-2 mt-1 w-100" title="See Product in detail" id="cartButton1" >Details</button>
-                <button className="btn btn-outline-dark Mbutton  w-100" id={'cartButton'+t.sno}
-                 data-name={t.itemName}
-                 data-src={t.profileURL}
-                 data-bs-pid={t.sno}
-
-                 onClick={()=> addItem(t)}>Add to cart</button>
-                        </div>
-                        
-                    </div>
-                ))}
+             {aitem.length?
+                aitem.map(item=> item)
+                 : null
+            }
         </Slider>
     </div>
     )

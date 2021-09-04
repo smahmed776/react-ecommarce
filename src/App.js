@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "./components/header";
-import { Items, RecipeItems} from './components/items';
 import Carousel from "./components/carousel";
 import Footer from "./components/footer";
 
@@ -9,6 +8,9 @@ import './App.css';
 import Trending from "./components/Trending";
 import CheckOut from "./pages/checkout";
 import Product from "./pages/product/product";
+import Categories from "./components/categories";
+import Feed from "./components/feed";
+import Search from "./components/Search";
 
 
 
@@ -16,19 +18,20 @@ function App() {
 
   return (
     <div>
-          <Header />
+      <Header />
       <Switch> 
         <Route exact path="/">
           <Carousel />      
           <Trending />
-          <Items />
-          <RecipeItems />
+          <Feed />
         </Route>        
         <Route path="/product" component={Product}/>
+        <Route path="/search" component={Search}/>
         <Route exact path="/checkout">
           <CheckOut />
         </Route>
       </Switch>
+      <Categories />
       <Footer />
     </div>
   );

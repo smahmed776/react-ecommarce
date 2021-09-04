@@ -1,6 +1,6 @@
 import React, {useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom';
-import {useCart} from './cartHook'
+import {useCart} from './custom hooks/cartHook'
 
 const Cart = (props) => {
     const {cartItem, increase, decrease, removeItem, itemCount, total} = useCart();

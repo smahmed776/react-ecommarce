@@ -1,7 +1,7 @@
 import React from 'react'
 import CheckBoard from './checkout/checkboard';
 import CheckInput from './checkout/checkInput';
-import { useCart } from '../components/cartHook';
+import { useCart } from '../components/custom hooks/cartHook';
 
 
 const CheckOut = () => {

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext, IsAuthContext } from './auth/authContext';
 import Login from './auth/login';
@@ -12,6 +12,7 @@ const Header = () => {
 
   const [user, setUser] = useContext(AuthContext);
   const [isUser, setIsUser] = useContext(IsAuthContext);
+  const [search, setSearch] = useState("")
   console.log(isUser[0].isUser)
 
   // const UserObj = user?  [{
@@ -45,10 +46,16 @@ const Header = () => {
         } 
       }
   }
+  const searchHandle = e => {
+ 
+    setSearch("");
+  }
 
-  // useEffect(() => {
-  //   localStorage.setItem("isLogged", JSON.stringify(isUser))
-  // }, [isUser])
+  const showSearch = () => {
+    document.getElementById('searchform').classList.toggle("searchShow");
+  }
+
+ 
 
 
     // header change after scroll
@@ -63,26 +70,22 @@ const Header = () => {
                 {/*=================================================================================
 				            search bar 
 			            ======================================================================================*/}
-                <form className="form-inline float-right me-auto searchform" id="searchform" >
+                <form action={`/search?q=${search}`} className="form-inline float-right me-auto searchform" onSubmit={e => searchHandle(e)} id="searchform" >
                     <div className="input-group" >
                         <div className="form-floating">
-                            <input className="form-control" type="search" id="searchfloating" name="search" placeholder="Search for your products" required title="hi" style={{ "height": "43px" }} />
+                            <input className="form-control" type="search" id="searchfloating" name="search" value={search} onChange={(e)=> setSearch(e.target.value)}  required style={{ "height": "43px" }} />
                             <label htmlFor="searchfloating" className="searchlabel" style={{ "top": "-7px" }}>Search</label>
                         </div>
                         <div className="input-group-text" style={{ padding: "0", borderTopRightRadius: "5px", borderTopLeftRadius: "0px", borderBottomLeftRadius: "0px", borderBottomRightRadius: "5px" }} id="inputGroupPrepend">
-                            <button type="submit" name="Search" className="btn btn-success w-100 h-100" placeholder="Search"> 
-                              <span className="bi bi-search text-white"></span>
-                            </button>
+                            <Link to={`/search?q=${search}`} style={{width: "100%", height: "100%"}}>
+                              <button type="submit" name="Search" className="btn btn-success w-100 h-100"  placeholder="Search"> 
+                                <span className="bi bi-search text-white"></span>
+                              </button>
+                            </Link>
                         </div>
                     </div>
                 </form>
-                {/* <button className="navbar-toggler navbar-light btntoggle" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                    <div  style={{ "display": "inline-block", "cursor": "pointer" }}>
-                        <div className="bar1" />
-                        <div className="bar2" />
-                        <div className="bar3" />
-                    </div>
-                </button> */}
+
                 <div className="collapse navbar-collapse" id="collapsibleNavbar" style={{ width: "43%", WebkitBoxPack: "end", WebkitJustifyContent: "flex-end", msFlexPack: "end", justifyContent: "flex-end", WebkitAlignItems: "center", WebkitBoxAlign: "center", msFlexAlign: "center", alingnItems: "center" }}>
                     <ul className="navbar-nav navul">
                         <li className="nav-item navitem">
@@ -131,7 +134,7 @@ const Header = () => {
       </li>
 
       <li className="nav-item navitem">
-        <a className="nav-link px-0 py-0" href="#" style={{padding: ".4rem 0!important"}} ><span className="bi bi-search" /> Search</a>
+        <a className="nav-link px-0 py-0" href="#" onClick={showSearch} style={{padding: ".4rem 0!important"}} ><span className="bi bi-search" /> Search</a>
       </li>
 
       <li className="nav-item navitem btn-group dropup">

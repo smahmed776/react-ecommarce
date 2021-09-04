@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import "./product.css"
-import { useCart } from '../../components/cartHook';
+import { useCart } from '../../components/custom hooks/cartHook';
 
 
 

@@ -6,8 +6,8 @@ import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import App from './App';
 import { HashRouter } from 'react-router-dom';
-import { CartItemProvider } from "./components/CartItemContext";
-import {  ItemProvider, RecipeProvider, TrendingProvider } from "./components/itemContext";
+import { CartItemProvider } from "./components/contexts/CartItemContext";
+import {  ItemProvider, TrendingProvider } from "./components/contexts/itemContext";
 import reportWebVitals from './reportWebVitals';
 import { AuthContextProvider, IsAuthContextProvider } from './components/auth/authContext';
 
@@ -16,7 +16,7 @@ ReactDOM.render(
     <HashRouter>
       <CartItemProvider>
         <ItemProvider>
-          <RecipeProvider>
+
             <TrendingProvider>
               <AuthContextProvider>
                 <IsAuthContextProvider>
@@ -25,7 +25,7 @@ ReactDOM.render(
               </AuthContextProvider>
 
             </TrendingProvider>
-          </RecipeProvider>
+
         </ItemProvider>
       </CartItemProvider>
     </HashRouter>

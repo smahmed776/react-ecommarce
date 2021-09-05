@@ -74,8 +74,8 @@ const Login = () => {
           <form  className="needs-validation p-3" onSubmit={(e)=> formHandler(e)} id="lform" noValidate>
             <div className="row">
               <div className="cols-12">
-                <label htmlFor="username" className="form-label">User Name:</label>
-                <input className="form-control" form="lform" type="text" name="username" id="username" value={email} onChange={e => setemail(e.target.value)} required />
+                <label htmlFor="email" className="form-label">E-mail:</label>
+                <input className="form-control" form="lform" type="email" name="email" id="email" value={email} onChange={e => setemail(e.target.value)} required />
                 <div className="invalid-feedback">
                   Username can't be empty!
                 </div>

@@ -54,6 +54,9 @@ const Header = () => {
   const showSearch = () => {
     document.getElementById('searchform').classList.toggle("searchShow");
   }
+  const handledropdown = () => {
+    document.getElementById('profile').classList.toggle('showprofile')
+  }
 
  
 
@@ -73,8 +76,8 @@ const Header = () => {
                 <form action={`/search?q=${search}`} className="form-inline float-right me-auto searchform" onSubmit={e => searchHandle(e)} id="searchform" >
                     <div className="input-group" >
                         <div className="form-floating">
-                            <input className="form-control" type="search" id="searchfloating" name="search" value={search} onChange={(e)=> setSearch(e.target.value)}  required style={{ "height": "43px" }} />
-                            <label htmlFor="searchfloating" className="searchlabel" style={{ "top": "-7px" }}>Search</label>
+                            <input className="form-control" type="search" id="searchfloating" placeholder="search" name="search" value={search} onChange={(e)=> setSearch(e.target.value)}  required style={{ "height": "43px" }} />
+                            <label htmlFor="searchfloating" className="searchlabel" style={{ "top": "-7px" }}>Search for products</label>
                         </div>
                         <div className="input-group-text" style={{ padding: "0", borderTopRightRadius: "5px", borderTopLeftRadius: "0px", borderBottomLeftRadius: "0px", borderBottomRightRadius: "5px" }} id="inputGroupPrepend">
                             <Link to={`/search?q=${search}`} style={{width: "100%", height: "100%"}}>
@@ -152,11 +155,10 @@ const Header = () => {
       </li>
       :
       <li className="nav-item navitem btn-group dropup">
-       <button className=" nav-link btn dropdown-toggle px-0 py-0 text-dark mb-0" id="profile" data-bs-toggle="dropdown" aria-expanded="false"  style={{ fontSize: ".6rem"}}><span className="bi bi-person-circle" ></span>
+       <button className=" nav-link btn dropdown-toggle px-0 py-0 text-dark mb-0" onClick={handledropdown}  data-bs-toggle="dropdown" aria-expanded="false"  style={{ fontSize: ".6rem"}}><span className="bi bi-person-circle" ></span>
          Profile
         </button> 
-        <ul className="dropdown-menu justify-content-between" 
-         aria-labelledby="profile"
+        <ul className="dropdown-menu justify-content-between" id="profile" 
          style={{width:"100%",position:"absolute",left:"-65px",transition:"bottom .6s ease"}}>
           <li>
           <div className="dropdown-item  bg-light" style={{"height":"45px",paddingTop:"10px",WebkitTextAlign:"center",textAlign:"center"}}>
@@ -174,7 +176,7 @@ const Header = () => {
       }
 
       <li className="nav-item navitem" id="btnnav">
-        <button className="navbar-toggler navbar-light btntoggles pb-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler navbar-light btntoggles pb-2" type="button" data-bs-toggle="modal" data-bs-target="#mobilenavbar">
           <div style={{"display":"inline-block","cursor":"pointer"}} >
             <div className="bar1" />
             <div className="bar2" />
@@ -184,6 +186,21 @@ const Header = () => {
       </li>
     </ul>
   </div>
+        <div class="modal fade" id="mobilenavbar" aria-hidden="true" aria-labelledby="mobilenavbarLabel" tabindex="-1">
+          <div className="modal-dialog modal-fullscreen-sm-down">
+            <div className="modal-content">
+              <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                    Show a second modal and hide this one with the button below.
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
+              </div>
+            </div>
+          </div>
+        </div>
   {/* Modal login and registration form */}
   <Login />
   {/* Register form */}

@@ -5,6 +5,7 @@
 .showprofile {
 	display: flex!important;
 	bottom: 45px!important;
+	flex-direction: column;
 
 }
 

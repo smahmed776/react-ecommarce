@@ -127,7 +127,7 @@ const Cart = (props) => {
                     <div className="cartButton">
                        
 
-                       <Link to="/checkout" className="btn btn-secondary w-100 m-0  cbutton">ক্রয় নিশ্চিত করুন</Link>
+                       <Link to="/checkout" className="btn btn-secondary w-100 m-0  cbutton" data-bs-dismiss="offcanvas" aria-label="Close">ক্রয় নিশ্চিত করুন</Link>
                   
                        
                    </div>
@@ -183,7 +183,7 @@ const Cart = (props) => {
                         <div>
                        
 
-                            <Link to="/checkout" className="btn btn-secondary w-100 m-0 cbutton">ক্রয় নিশ্চিত করুন</Link>
+                            <Link to="/checkout" className="btn btn-secondary w-100 m-0 cbutton" data-bs-dismiss="offcanvas" aria-label="Close">ক্রয় নিশ্চিত করুন</Link>
                        
                             
                         </div>

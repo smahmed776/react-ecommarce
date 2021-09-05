@@ -22,8 +22,8 @@ const CheckBoard = ({itemCount, total, cartItem}) => {
                                     </td>
                                     <td>
                                         <div>
-                                            <span id="price1" className="text-muted">{item.quantity * item.price}</span>
-                                            <span className="text-success"> টাকা</span>
+                                            <span id="price1" className="text-muted">$ {item.quantity * item.price}</span>
+                                            {/* <span className="text-success"> টাকা</span> */}
                                         </div>
                                     </td>
                                 </tr>
@@ -41,8 +41,8 @@ const CheckBoard = ({itemCount, total, cartItem}) => {
                             <td>
                             <div>
                                 <span>-</span>
-                                <span id="priceOff" className="text-muted">2000</span>
-                                <span className="text-success"> টাকা</span>
+                                <span id="priceOff" className="text-muted">$ 0</span>
+                                {/* <span className="text-success"> টাকা</span> */}
                             </div>
                             </td>
                         </tr>
@@ -51,14 +51,14 @@ const CheckBoard = ({itemCount, total, cartItem}) => {
                             <td>
                             <div className="text-success">
                                 <h6>কুপন কোড</h6>
-                                <small className="text-muted">0%off</small>
+                                <small className="text-muted">0% off</small>
                             </div>
                             </td>
                             <td>
                             <div>
                                 <span>-</span>
-                                <span id="promoCode" className="text-success">0</span>
-                                <span className="text-success"> টাকা</span>
+                                <span id="promoCode" className="text-success">$0</span>
+                                {/* <span className="text-success"> টাকা</span> */}
                             </div>
                             </td>
                         </tr>
@@ -66,13 +66,13 @@ const CheckBoard = ({itemCount, total, cartItem}) => {
                         <tr>
                             <td>
                             <div>
-                                <h6>সর্বমোট-</h6>
+                                <h6 className="pt-2">সর্বমোট-</h6>
                             </div>
                             </td>
                             <td>
                             <div>
-                                <span id="totalCost" className="text-muted">{total}</span>
-                                <span className="text-muted"> টাকা</span>
+                                <span id="totalCost" className="text-muted">$ {total}</span>
+                                {/* <span className="text-muted"> টাকা</span> */}
                             </div>
                             </td>
                         </tr>

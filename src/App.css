@@ -22,6 +22,9 @@
   opacity: 1!important;
 }
 
+.showpayment {
+	display: block!important;
+}
 
 div.rr{
 	position: relative;
@@ -274,9 +277,6 @@ div.rr div.pname {
 }
 
 
-#bkashPayment {
-	display: none;
-}
 
 li svg {
 	color: green;
@@ -428,6 +428,9 @@ hr {
         width: 100%;
         padding: 0px 0px;
         overflow: hidden;
+	}
+	.btntoggles:focus {
+		box-shadow: none;
 	}
 
 	.bar1, .bar2, .bar3 {

@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/react-ecommarce/static/css/main.1e358bef.chunk.css",
-    "main.js": "/react-ecommarce/static/js/main.902f1b7d.chunk.js",
-    "main.js.map": "/react-ecommarce/static/js/main.902f1b7d.chunk.js.map",
+    "main.css": "/react-ecommarce/static/css/main.4f897723.chunk.css",
+    "main.js": "/react-ecommarce/static/js/main.8fae3270.chunk.js",
+    "main.js.map": "/react-ecommarce/static/js/main.8fae3270.chunk.js.map",
     "runtime-main.js": "/react-ecommarce/static/js/runtime-main.80c8143e.js",
     "runtime-main.js.map": "/react-ecommarce/static/js/runtime-main.80c8143e.js.map",
     "static/css/2.300926ef.chunk.css": "/react-ecommarce/static/css/2.300926ef.chunk.css",
-    "static/js/2.ed4f4116.chunk.js": "/react-ecommarce/static/js/2.ed4f4116.chunk.js",
-    "static/js/2.ed4f4116.chunk.js.map": "/react-ecommarce/static/js/2.ed4f4116.chunk.js.map",
+    "static/js/2.0fe56276.chunk.js": "/react-ecommarce/static/js/2.0fe56276.chunk.js",
+    "static/js/2.0fe56276.chunk.js.map": "/react-ecommarce/static/js/2.0fe56276.chunk.js.map",
     "static/js/3.f02a6429.chunk.js": "/react-ecommarce/static/js/3.f02a6429.chunk.js",
     "static/js/3.f02a6429.chunk.js.map": "/react-ecommarce/static/js/3.f02a6429.chunk.js.map",
     "index.html": "/react-ecommarce/index.html",
     "static/css/2.300926ef.chunk.css.map": "/react-ecommarce/static/css/2.300926ef.chunk.css.map",
-    "static/css/main.1e358bef.chunk.css.map": "/react-ecommarce/static/css/main.1e358bef.chunk.css.map",
-    "static/js/2.ed4f4116.chunk.js.LICENSE.txt": "/react-ecommarce/static/js/2.ed4f4116.chunk.js.LICENSE.txt",
+    "static/css/main.4f897723.chunk.css.map": "/react-ecommarce/static/css/main.4f897723.chunk.css.map",
+    "static/js/2.0fe56276.chunk.js.LICENSE.txt": "/react-ecommarce/static/js/2.0fe56276.chunk.js.LICENSE.txt",
     "static/media/index.css": "/react-ecommarce/static/media/solaimanlipi.7c6a8fad.ttf",
     "static/media/bootstrap-icons.css": "/react-ecommarce/static/media/bootstrap-icons.dfd0ea12.woff2",
     "static/media/slick-theme.css": "/react-ecommarce/static/media/slick.c94f7671.ttf"
@@ -21,8 +21,8 @@
   "entrypoints": [
     "static/js/runtime-main.80c8143e.js",
     "static/css/2.300926ef.chunk.css",
-    "static/js/2.ed4f4116.chunk.js",
-    "static/css/main.1e358bef.chunk.css",
-    "static/js/main.902f1b7d.chunk.js"
+    "static/js/2.0fe56276.chunk.js",
+    "static/css/main.4f897723.chunk.css",
+    "static/js/main.8fae3270.chunk.js"
   ]
 }

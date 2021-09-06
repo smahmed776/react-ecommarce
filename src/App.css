@@ -68,10 +68,8 @@ div.trending {
 }
 
 div.trending .col {
-    display: inline-block;
-    width: 214px;
+    
     margin-right: 9px!important;
-    margin-bottom: 1.5rem!important;
     background-color: white;
     position: relative;
     height: 368px;

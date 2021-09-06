@@ -50,10 +50,10 @@ const footer = () => {
                 <hr className="text-success"/>
                 <div className="d-flex justify-content-between flist ps-0" style={{listStyleType : "none"}}>
                     <a href="">
-                        <img src="./img/google-play-badge-pickaboo.png" width="40%" alt=""/>
+                        <img src="./img/google-play-badge-pickaboo.png" width="100%" alt=""/>
                     </a>
                     <a href="">
-                        <img src="./img/App-store-badge-pickaboo.png" width="40%" alt="" />
+                        <img src="./img/App-store-badge-pickaboo.png" width="100%" alt="" />
                     </a>
                 </div>
             </div>

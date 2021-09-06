@@ -11,25 +11,25 @@ const Trending = () => {
     const {addItem} = useCart();
 
 
-    const [aitem, setAitem] = useState([]);
+    // const [aitem, setAitem] = useState([]);
 
 
-    async function req (){
-        for (let i = 0; i < trending.length; i++) {
+    // async function req (){
+    //     for (let i = 0; i < trending.length; i++) {
         
-        // console.log(items)
-        aitem.push(<TrendItem items={trending[i]} addItem={addItem}/>)
-       await setAitem([...aitem])
+    //     // console.log(items)
+    //     aitem.push(<TrendItem items={trending[i]} addItem={addItem}/>)
+    //    await setAitem([...aitem])
         
-       }
-    }
+    //    }
+    // }
 
-    useEffect(()=>{
-        if(trending.length >= 1){
-            req();
-            // console.log(aitem);
-        } 
-    }, [trending])
+    // useEffect(()=>{
+    //     if(trending.length >= 1){
+    //         req();
+    //         // console.log(aitem);
+    //     } 
+    // }, [trending])
 
 
 
@@ -111,9 +111,10 @@ const Trending = () => {
                 }
             ]}
         >
-             {aitem.length?
-                aitem.map(item=> item)
-                 : null
+             {
+                trending.map(item=>
+                    <TrendItem items={item} addItem={addItem} />
+                )
             }
         </Slider>
     </div>

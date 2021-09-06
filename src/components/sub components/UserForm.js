@@ -1,6 +1,17 @@
 import React from 'react'
 
 const UserForm = ({user}) => {
+    const validate = e => {
+        if(e.target.value === user.password){
+            e.target.classList.add("is-valid")
+			e.target.classList.remove("is-invalid")
+            // console.log("valid");
+        } else {
+            e.target.classList.add("is-invalid")
+		    e.target.classList.remove("is-valid")
+            // console.log("invalid");
+        }
+    }
     return (
         <>
             <div className="col-12">
@@ -20,8 +31,8 @@ const UserForm = ({user}) => {
 			</div>
             <div className="col-12">
                 <label for="password" className="form-label">Confirm your password : </label>
-                <input name="password" type="password" id="password" className="form-control" required/>
-                <div className="invalid-feedback" id="passfeedback">Password required</div>
+                <input name="password" type="password" id="password" className="form-control" onKeyUp={e => validate(e)} required/>
+                <div className="invalid-feedback" id="passfeedback">Password doesn't match</div>
 			</div>
         </>
     )

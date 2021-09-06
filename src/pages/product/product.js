@@ -31,8 +31,8 @@ const Product = ({ location }) => {
             document.getElementById('addCartBtn').style.marginTop = "0";
             document.getElementById('productload').style.display= "none"
         }
-        setAmazoneItem([res]);
-        console.log(res);
+        await setAmazoneItem([res]);
+        // console.log(res);
     }
     
     const changeMain = e => {
@@ -52,14 +52,14 @@ const Product = ({ location }) => {
                    itemName: amazoneItem[0].name,
                    sno: idx, 
                    profileURL: amazoneItem[0].images[0], 
-                   price: parseInt(amazoneItem[0].pricing), 
+                   price: parseInt(amazoneItem[0].pricing.toString().replace("$", "")), 
                    url: amazoneItem[0].url, 
                    quantity: 1 
                 }
            ) 
            
            console.log(imgArr);
-           console.log(amazoneItem);
+           console.log(obj);
         }
         
         if(amazoneItem <= 0){

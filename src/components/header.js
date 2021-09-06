@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext, IsAuthContext } from './auth/authContext';
-import Login from './auth/login';
+import { AuthContext } from './auth/authContext';
+import { Login, ResetForm } from './auth/login';
 import SignUp from './auth/signUp';
 import Cart from './Cart';
 
@@ -11,9 +11,8 @@ const Header = () => {
 
 
   const [user, setUser] = useContext(AuthContext);
-  const [isUser, setIsUser] = useContext(IsAuthContext);
   const [search, setSearch] = useState("")
-  console.log(isUser[0].isUser)
+  // console.log(isUser[0].isUser)
 
   // const UserObj = user?  [{
   //     name: user[user.findIndex(item => item.isUser === true)].name
@@ -21,7 +20,7 @@ const Header = () => {
 
   const logout = (e) => {
     e.preventDefault();
-    console.log(userObj())
+    // console.log(userObj())
     
 
       if(user.find(item => item.isUser === true)){
@@ -205,6 +204,8 @@ const Header = () => {
   <Login />
   {/* Register form */}
   <SignUp />
+  {/* // restes form */}
+  <ResetForm />
 </div>        
     </>
                 )

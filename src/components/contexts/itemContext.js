@@ -1,5 +1,4 @@
 import React, {useState, useEffect, createContext} from 'react'
-import { v4 as uuid4 } from "uuid"
 
 
 export const ItemContext = createContext();
@@ -73,7 +72,7 @@ export const TrendingProvider = props => {
 
     const [trending, setTrending] = useState([]);
     return (
-        <TrendingItemContext.Provider value={[trending, setTrending]}>
+        <TrendingItemContext.Provider value={[trending]}>
             {props.children}
         </TrendingItemContext.Provider>
     )

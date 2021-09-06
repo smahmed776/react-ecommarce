@@ -9,7 +9,7 @@ const Categories = () => {
         		
         		<div className="col">
         			<div className="card">
-        				<img className="card-image-top" height="70%" width="100%" src="img/mob1.jpg" alt="" srcset="" />
+        				<img className="card-image-top" height="70%" width="100%" src="img/samsung/samsungA12.jpg" alt="" srcset="" />
         				<div className="card-body">
         					<a href="#" className="btn btn-primary w-100">Mobile & Electronics</a>
         				</div>

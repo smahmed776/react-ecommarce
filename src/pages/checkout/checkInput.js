@@ -30,8 +30,8 @@ const CheckInput = () => {
 
 	const newUser = async () => {
 		if(user[user.findIndex(i => i.email === email)]){
-			return alert('Email already exist');
-		} else {	
+			return false;
+		} else if(!isLogged()) {
 			await	setUser([
 				{
 					name: fname +" "+ lname,
@@ -40,7 +40,10 @@ const CheckInput = () => {
 					isUser: true
 				}
 			])
-		}
+		} else {
+			console.log("user already logged in", isLogged())	
+			
+	    }
 	}
 
 
@@ -58,10 +61,31 @@ const CheckInput = () => {
 			e.preventDefault();
             e.stopPropagation();
 			alert('form incomplete')
+			// console.log(e.target , "target")
+			// console.log(e.target.elements, "elements")
         } else {
-	    	await newUser();
-			alert('success');
-			resetForm();
+			if(isLogged()){
+                const passClassList = e.target.elements.password.classList;
+				if(passClassList.value.includes("is-invalid")){
+					alert("password doesn't match")
+				} else {
+					await newUser();
+					
+					alert('success');
+					resetForm();
+				}
+			} else {
+				await newUser();
+				if (newUser()){
+					// console.log(newUser(), false);
+					e.target.elements.email.classList.add("is-invalid");
+					alert('Email arleady exist!')
+				} else {
+					alert('success');
+					resetForm();
+				}
+			}
+			
 		}
         e.target.classList.add("was-validated");
 	}
@@ -108,9 +132,9 @@ const CheckInput = () => {
 			if(e.target.value.length <= minLength){
 				e.target.classList.add("is-invalid")
 				e.target.classList.remove("is-valid")
-				console.log("invalid number");
+				// console.log("invalid number");
 			} else {
-				console.log("number ok")
+				// console.log("number ok")
 				e.target.classList.add("is-valid")
 				e.target.classList.remove("is-invalid")
 			}
@@ -190,7 +214,7 @@ const CheckInput = () => {
 					<div className="col-12">
 						<label for="email" className="form-label">ইমেইল এড্রেস: </label>
 						<input name="email" type="email" id="email" className="form-control" onKeyUp={e => validation(e)} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="someone@example.com" value={email} onChange={e => setEmail(e.target.value)} required/>
-						<div className="invalid-feedback">ইমেইল এড্রেস সঠিকভাবে লিখুন।</div>
+						<div className="invalid-feedback" id="emailfeedback">ইমেইল এড্রেস সঠিকভাবে লিখুন।</div>
 					</div>
 					<div className="col-12">
 						<label for="password" className="form-label">Password : </label>
@@ -368,7 +392,7 @@ const CheckInput = () => {
 					 
 					    <hr className="my-4"/> 
 					    <label for="bkashNumber" className="form-label">বিকাশ নাম্বার:</label>
-					    <input type="number" maxLength="12" className="form-control" name="bkashNumber" onKeyUp={e => validation(e)} minLength="11" id="bkashNumber"  />
+					    <input type="number" maxLength="20" className="form-control" name="bkashNumber" onKeyUp={e => validation(e)} minLength="9" id="bkashNumber"  />
 					    <div className="invalid-feedback">
 					        আপনার বিকাশ নাম্বার দিন।
 					    </div>

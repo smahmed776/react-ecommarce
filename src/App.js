@@ -10,6 +10,7 @@ import Categories from "./components/categories";
 import Feed from "./components/feed";
 import Search from "./components/Search";
 import './App.css';
+import Profile from "./pages/Profile/Profile";
 
 
 
@@ -24,11 +25,10 @@ function App() {
           <Trending />
           <Feed />
         </Route>        
+        <Route path="/checkout" component={CheckOut} />
         <Route path="/product" component={Product}/>
+        <Route path="/profile" component={Profile} />
         <Route path="/search" component={Search}/>
-        <Route exact path="/checkout">
-          <CheckOut />
-        </Route>
       </Switch>
       <Categories />
       <Footer />

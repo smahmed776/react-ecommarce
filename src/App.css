@@ -321,10 +321,30 @@ hr {
 .nextbtn {
   right: 0;
 }
+#mobdash {
+	display: none;
+}
+.accinfo {
+	margin-left: 6rem;
+	width: 66.666%;
+}
 
 /* this is for mobile sceen  */
 
 @media (max-width: 576px) {
+	.accinfo {
+		margin-left: 2rem;
+		width: 80vw
+	}
+	#mobdash {
+		display: flex;
+	}
+
+	#lgdash{
+		display: none;
+	}
+
+
   /* this is trending prev next button */
   .prevbtn, .nextbtn{
     width: 15%;

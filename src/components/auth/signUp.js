@@ -4,10 +4,11 @@ import { AuthContext } from './authContext';
 const SignUp = () => {
 
     const [user, setUser] = useContext(AuthContext);
-     const [fName, setfName] = useState("");
-     const [lName, setlName] = useState("");
+    const [fName, setfName] = useState("");
+    const [lName, setlName] = useState("");
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
+    const [userName, setUserName] = useState("");
 
     const handleForm = (e) => {
         e.preventDefault();
@@ -23,7 +24,7 @@ const SignUp = () => {
             } else {
 
               user.push(
-                {name: fName + " " + lName, email: email, password: password, isUser: false}
+                {name: fName + " " + lName, username: userName, email: email, password: password, isUser: false}
               )
                 setUser([
                     ...user,             
@@ -112,16 +113,16 @@ const SignUp = () => {
                   Last name is required!
                 </div>
               </div>
-              {/* <div className="col-12">
+              <div className="col-12">
                 <label htmlFor="username" className="form-label">User Name:</label>
                 <div className="input-group">
                   <span className="input-group-text">@</span>
-                  <input className="form-control" form="regform" type="text" name="username" id="username" value={Name} onChange={e => setName(e.target.value)} required />
+                  <input className="form-control" form="regform" type="text" name="username" id="username" value={userName} onChange={e => setUserName(e.target.value)} required />
                   <div className="invalid-feedback">
                     Username can't be empty!
                   </div>
                 </div>
-              </div> */}
+              </div>
               <div className="col-12">
                 <label htmlFor="Email" className="form-label">Email :</label>
                 <input className="form-control" form="regform" type="email" name="Email" id="Email" value={email} onChange={e => setemail(e.target.value)} required />

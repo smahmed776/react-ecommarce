@@ -1,10 +1,11 @@
+import { bottom } from '@popperjs/core';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from './auth/authContext';
 import { Login, ResetForm } from './auth/login';
 import SignUp from './auth/signUp';
 import Cart from './Cart';
-
+// import "bootstrap/dist/js/bootstrap.bundle"
 import './header.css'
 
 const Header = () => {
@@ -38,7 +39,8 @@ const Header = () => {
 
         if(user.find(item => item.isUser === true)){
           return  {
-            name: user[user.findIndex(item => item.isUser === true)].name
+            name: user[user.findIndex(item => item.isUser === true)].name,
+            username: user[user.findIndex(item => item.isUser === true)].username
           }
         } else {
           return false
@@ -55,6 +57,13 @@ const Header = () => {
   }
   const handledropdown = () => {
     document.getElementById('profile').classList.toggle('showprofile')
+  }
+
+  const headerprofiledrop = () =>{
+    document.getElementById("profiledrop").classList.toggle("d-block");
+  }
+  const profiledropmob = () =>{
+    document.getElementById("mprofiledrop").classList.toggle("d-block");
   }
 
  
@@ -89,7 +98,7 @@ const Header = () => {
                 </form>
 
                 <div className="collapse navbar-collapse" id="collapsibleNavbar" style={{ width: "43%", WebkitBoxPack: "end", WebkitJustifyContent: "flex-end", msFlexPack: "end", justifyContent: "flex-end", WebkitAlignItems: "center", WebkitBoxAlign: "center", msFlexAlign: "center", alingnItems: "center" }}>
-                    <ul className="navbar-nav navul">
+                    <ul className="navbar-nav navul align-items-center">
                         <li className="nav-item navitem">
                             <a className="nav-link px-2" >About Us</a>
                         </li>
@@ -99,12 +108,17 @@ const Header = () => {
                         {
                           userObj()? 
                         <>
-                        <li className="nav-item navitem">
-                            <p className="nav-link px-2" >{`Hi, ${userObj().name}`}</p>
-                            
-                        </li>
-                        <li className="nav-item navitem">
-                          <a className="nav-link px-2" onClick={e => logout(e)}>Log Out</a>
+                        <li className="nav-item navitem ">
+                          <div className="dropdown">
+                            <button className="btn nav-link p-0 m-0 dropdown-toggle" type="button"  onClick={headerprofiledrop}>     
+                              <img src="./img/pic2.jpg" className="rounded-pill me-2" height="35px" width="35px" alt="" />
+                              {` ${userObj().name}`}
+                            </button>
+                          <ul class="dropdown-menu" id="profiledrop">
+                            <li><Link class="dropdown-item" to={`/profile/${userObj().username}`}>Profile</Link></li>
+                            <li><a className="nav-link px-2" onClick={e => logout(e)}>Log Out</a></li>
+                          </ul>  
+                          </div>
                         </li>
                         </>
                         :
@@ -145,12 +159,19 @@ const Header = () => {
       {
       userObj()? 
       <li className="nav-item navitem btn-group">
-       <div>
-       <p className=" nav-link btn px-0 py-0 text-dark mb-0" style={{ padding: "0 !important", fontSize: ".6rem"}}><span className="bi bi-person-circle" ></span>
-         {`HI,  ${userObj().name}`}
-        </p> 
-        <a onClick={e => logout(e)}>Log out</a>
-       </div>
+         <div className="dropup">
+           <button className=" nav-link btn px-0 py-0 text-dark mb-0 dropdown-toggle" style={{ padding: "0 !important", fontSize: ".6rem"}} onClick={profiledropmob}> 
+           <img src="./img/pic2.jpg" className="rounded-pill mb-2" style={{marginTop:"-10px"}} height="25px" width="25px" alt="" />
+         {`${userObj().name}`}
+        </button>
+        <ul class="dropdown-menu" id="mprofiledrop" style={{
+          position: "absolute",
+          bottom: "2.5rem"
+        }}>
+          <li><Link class="dropdown-item" to={`/profile/${userObj().username}`}>Profile</Link></li>
+          <li><a className="nav-link px-2" onClick={e => logout(e)}>Log Out</a></li>
+        </ul>  
+        </div>
       </li>
       :
       <li className="nav-item navitem btn-group dropup">

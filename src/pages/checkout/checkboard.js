@@ -15,14 +15,14 @@ const CheckBoard = ({itemCount, total, cartItem}) => {
                            
                                 <tr>
                                     <td>
-                                        <div>
+                                        <div className="w-75">
                                             <h6 id="firstitem">{item.itemName}</h6>
                                             <small className="text-muted">x {item.quantity} টি</small>
 					                    </div>
                                     </td>
                                     <td>
-                                        <div>
-                                            <span id="price1" className="text-muted">$ {item.quantity * item.price}</span>
+                                        <div className="w-25">
+                                            <span id="price1" className="text-muted">${item.quantity * item.price}</span>
                                             {/* <span className="text-success"> টাকা</span> */}
                                         </div>
                                     </td>
@@ -41,7 +41,7 @@ const CheckBoard = ({itemCount, total, cartItem}) => {
                             <td>
                             <div>
                                 <span>-</span>
-                                <span id="priceOff" className="text-muted">$ 0</span>
+                                <span id="priceOff" className="text-muted">$0</span>
                                 {/* <span className="text-success"> টাকা</span> */}
                             </div>
                             </td>
@@ -71,7 +71,7 @@ const CheckBoard = ({itemCount, total, cartItem}) => {
                             </td>
                             <td>
                             <div>
-                                <span id="totalCost" className="text-muted">$ {total}</span>
+                                <span id="totalCost" className="text-muted">${total}</span>
                                 {/* <span className="text-muted"> টাকা</span> */}
                             </div>
                             </td>

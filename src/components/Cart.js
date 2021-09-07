@@ -96,7 +96,7 @@ const Cart = (props) => {
                             <h4 className=" text-primary" id="cartDropDown">{`You have ${itemCount} items in your cart.`}
                                 <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </h4>
-                            <h6 className=" text-dark text-center" ><span className="m-auto">{`Total price: ${total} Taka`}</span></h6>
+                            <h6 className=" text-dark text-center" ><span className="m-auto">{`Total price: $${total}`}</span></h6>
                                   
                            
                     </div>        
@@ -110,7 +110,7 @@ const Cart = (props) => {
                                             <img className="mb-2" style={{float: "left"}} src={c.profileURL} alt={c.name} height="55px" width="55px" />
                                             
                                             <div style={{float: "right"}}>
-                                            <small className="ps-3 mt-1 text-muted d-block">Price: {c.price} Taka</small>
+                                            <small className="ps-3 mt-1 text-muted d-block">Price: ${c.price}</small>
                                                 <button  className="btn bi bi-plus-circle-fill text-success" id={`p${c.id}`} data-product={c.id} onClick={()=>increase(c)}></button>
                                                 <span>Quantity: {c.quantity}</span>                                                    
                                                 <button className="btn bi bi-dash-circle-fill text-danger" id={`p${c.id}`}  onClick={()=>decrease(c)}></button>                                                    
@@ -127,7 +127,7 @@ const Cart = (props) => {
                     <div className="cartButton">
                        
 
-                       <Link to="/checkout" className="btn btn-secondary w-100 m-0  cbutton" data-bs-dismiss="offcanvas" aria-label="Close">ক্রয় নিশ্চিত করুন</Link>
+                       <Link to="/checkout" className="btn btn-primary w-100 m-0 cbutton" data-bs-dismiss="offcanvas" aria-label="Close">Go to checkout</Link>
                   
                        
                    </div>
@@ -183,7 +183,7 @@ const Cart = (props) => {
                         <div>
                        
 
-                            <Link to="/checkout" className="btn btn-secondary w-100 m-0 cbutton" data-bs-dismiss="offcanvas" aria-label="Close">ক্রয় নিশ্চিত করুন</Link>
+                            <Link to="/checkout" className="btn btn-primary w-100 m-0 cbutton" data-bs-dismiss="offcanvas" aria-label="Close" >Go to checkout</Link>
                        
                             
                         </div>

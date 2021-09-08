@@ -254,6 +254,8 @@ this is media min width of 576px
 @media (min-width: 576px) { 
 	div.navbarbrand { 
 		width: 25%;
+		white-space: normal;
+		margin-right: .5rem;
 	}
 	h2 {
 		font-size: 19px;

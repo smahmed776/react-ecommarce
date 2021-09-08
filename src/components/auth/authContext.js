@@ -1,7 +1,7 @@
 import React, { useState, createContext} from "react";
 
 export const AuthContext = createContext();
-export const IsAuthContext = createContext();
+
 
 
 export const AuthContextProvider = ({children}) => {
@@ -19,13 +19,3 @@ export const AuthContextProvider = ({children}) => {
     )
 }
 
-export const IsAuthContextProvider = ({children}) => {
-    const [isUser, setIsUser] = useState(localStorage.getItem("isLogged")? JSON.parse( localStorage.getItem('isLogged') ): [false]);
-
-    return (
-        <IsAuthContext.Provider value={[isUser, setIsUser]}>
-            {children}
-        </IsAuthContext.Provider>
-    )
-
-}

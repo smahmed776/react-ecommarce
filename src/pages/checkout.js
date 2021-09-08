@@ -9,7 +9,7 @@ const CheckOut = () => {
     return (
         <div className="container bnfont" id="cartpageopen">
             <div className="py-4 text-center">
-                <h2>আপনার ক্রয় নিশ্চিত করুন</h2>
+                <h2>Confirm Your Order!</h2>
             </div>
             
             <div className="row g-5">

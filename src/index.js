@@ -9,7 +9,7 @@ import { HashRouter } from 'react-router-dom';
 import { CartItemProvider } from "./components/contexts/CartItemContext";
 import {  ItemProvider, TrendingProvider } from "./components/contexts/itemContext";
 import reportWebVitals from './reportWebVitals';
-import { AuthContextProvider, IsAuthContextProvider } from './components/auth/authContext';
+import { AuthContextProvider } from './components/auth/authContext';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,9 +19,9 @@ ReactDOM.render(
 
             <TrendingProvider>
               <AuthContextProvider>
-                <IsAuthContextProvider>
+                
                   <App />
-                </IsAuthContextProvider>
+                
               </AuthContextProvider>
 
             </TrendingProvider>

@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { AuthContext, IsAuthContext} from './authContext';
+import { AuthContext} from './authContext';
+import { useHistory } from 'react-router-dom';
 
 
 
 export const Login = () => {
 
     const [user, setUser] = useContext(AuthContext);
-    const [isUser, setIsUser] = useContext(IsAuthContext);
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
+    const history = useHistory();
 
     const formHandler = (e) => {
-        e.preventDefault();
         if(!e.target.checkValidity()){
             e.preventDefault();
             e.stopPropagation();
@@ -19,21 +19,19 @@ export const Login = () => {
         }else {
             if (user.find(item => email === item.email && password === item.password)) {
               user[user.findIndex(item => email === item.email && password === item.password)].isUser= true;  
-              alert('login Successfull')
-              // console.log(user)
               setUser([...user]);
-              setIsUser([
-                {
-                  isUser:  user[user.findIndex(item => email === item.email && password === item.password)].isUser
-                }
-              ])
-              console.log(isUser);
+              alert('login Successfull')
+              history.push("/")
+              // console.log(user)
+              
               
             } else if(user.find(item => email === item.email || password === item.password)) {
+              e.preventDefault();
               alert('username and password does not match')
 
-              console.log(isUser);
+              
             } else {
+              e.preventDefault();
               alert("User not found! Please register first..")
             }
            
@@ -43,9 +41,7 @@ export const Login = () => {
         e.target.classList.add("was-validated");
     }
 
-    useEffect(() => {
-      localStorage.setItem("isLogged", JSON.stringify(isUser))
-    }, [isUser])
+
 
     const eyeToggle = (e) => {
         e.target.classList.toggle("bi-eye-slash-fill");
@@ -135,19 +131,18 @@ export const ResetForm = () => {
 
   const [user, setUser] = useContext(AuthContext);
   const [isValid, setIsvalid] = useState(false);
+  const history = useHistory();
 
-  console.log(isValid)
 
 
   const formHandler = e => {
-    e.preventDefault();
    
-
     if(e.target.elements.password){
       // console.log(e.target.elements)
       const passClassList1 = e.target.elements.cpassword;
       const passClassList = e.target.elements.password;
       if(passClassList.classList.value.includes("is-invalid") || passClassList1.classList.value.includes("is-invalid") || passClassList1.value !== passClassList.value){
+        e.preventDefault();
         alert("Form incomplete")
         return false;
       } 
@@ -155,10 +150,11 @@ export const ResetForm = () => {
         user[user.findIndex(i=> i.email === e.target.elements.email.value)].password = e.target.elements.password.value;
         setUser([...user]);
         alert('Password changed. login now...');
-
+        history.push('/checkout');
       
       }
     } else {
+      e.preventDefault();
       if(user[user.findIndex(i => i.email === e.target.elements.email.value)]){
         setIsvalid(true)
         console.log("true done", isValid);
@@ -171,6 +167,7 @@ export const ResetForm = () => {
       }
     }
   }
+
 
   const showPass = e => {
     e.target.classList.toggle("bi-eye-slash-fill");
@@ -186,6 +183,7 @@ export const ResetForm = () => {
         passInp.type = "password";
     }
   }
+
 
   const confirmPass = id => {
     const password = document.getElementById("resetpassword").value; 
@@ -261,7 +259,7 @@ export const ResetForm = () => {
               <button className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
             </div>
             <div className="modal-body">
-              <form  className="needs-validation p-3" onSubmit={e => formHandler(e)} id="resetform" noValidate>
+              <form  className="needs-validation p-3" action="#" onSubmit={e => formHandler(e)} id="resetform" noValidate>
                 <div className="row">
                   <div className="cols-12">
                     <h5 className="text-center">Find your account </h5>
@@ -276,7 +274,7 @@ export const ResetForm = () => {
                   <div className="col-12">
                     <label htmlFor="password" className="form-label">Password:</label>
                     <div className="input-group mb-2">
-                      <input className="form-control " form="resetform" type="password" name="password" id="resetpassword" onKeyDown={e => validatepass(e)} onChange={e => validatepass(e)}  required />
+                      <input className="form-control " form="resetform" type="password" name="password"  id="resetpassword" onKeyDown={e => validatepass(e)} onChange={e => validatepass(e)}  required />
                       <span className="input-group-text bi bi-eye-fill" style={{"cursor":"pointer"}}  title="show password" onClick={e => showPass(e)} />
                       <div className="invalid-feedback" id="resetpassfeedback">
                         Password required!
@@ -285,7 +283,7 @@ export const ResetForm = () => {
                   </div>
                   <div className="col-12">
                     <label htmlFor="cpassword" className="form-label">Confirm Password:</label>                    
-                      <input className="form-control " form="resetform" type="password" name="cpassword" onChange={e => confirmPass(e.target.id)} onKeyDown={e => confirmPass(e.target.id)} id="cpassword"   required />
+                      <input className="form-control " form="resetform" type="password" name="cpassword"  onChange={e => confirmPass(e.target.id)} onKeyDown={e => confirmPass(e.target.id)} id="cpassword"   required />
                       <div className="invalid-feedback">
                         Password doesn't match!
                       </div>

@@ -333,8 +333,8 @@ hr {
 
 @media (max-width: 576px) {
 	.accinfo {
-		margin-left: 2rem;
-		width: 80vw
+		margin-left: 2.5rem;
+		width: 75vw;
 	}
 	#mobdash {
 		display: flex;
@@ -696,13 +696,13 @@ hr {
 		margin: 0;
 	}
 	.socialiconcol {
-		margin: 0px !important;
+		margin: 0 6px !important;
 		font-size: 25px;
 		border: none;
 		border-radius: 0;
 		padding: 0 11px 0 11px;
 		width: auto;
-		flex: 0 0 0%;	
+		flex: 0 0;	
 	}
 
 	.fcol {
@@ -712,6 +712,12 @@ hr {
 		margin-top: 20px;
 		padding-bottom: 15px;
 		border-bottom: 1px solid #d6d6d6;
+	}
+	.fcolsocial {
+		flex-direction: row;
+    display: flex;
+    width: 100%;
+    justify-content: center;
 	}
 
 
@@ -779,8 +785,8 @@ hr {
   }
   .nav-item a:not(.cbutton){
 	  color: black;
-	  padding-left: 1.5rem!important;
-	  padding-right: 1.5rem!important;
+	  padding-left: 1rem!important;
+	  padding-right: 1rem!important;
 	  
   }
 
@@ -836,7 +842,9 @@ table tr td{
 
 .cbutton {
 	transition: none;
-	
+	height: 3rem;
+    padding-top: .8rem;
+	border-radius: 0;
 }
 .cbutton::after{
 	display: none!important;

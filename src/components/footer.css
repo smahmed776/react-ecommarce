@@ -22,10 +22,12 @@
 	width: auto;
 }
 .socialiconcol {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
     font-size: 25px;
-    border: 1px solid #cecaca;
     border-radius: 11px;
+    width: 2.5rem;
+    padding: 0px 7px;
+    height: 43px;
 }
 
 @media (max-width: 576px) {

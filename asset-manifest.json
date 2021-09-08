@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-ecommarce/static/css/main.1c017e79.chunk.css",
-    "main.js": "/react-ecommarce/static/js/main.24379e36.chunk.js",
-    "main.js.map": "/react-ecommarce/static/js/main.24379e36.chunk.js.map",
+    "main.js": "/react-ecommarce/static/js/main.c32e39ad.chunk.js",
+    "main.js.map": "/react-ecommarce/static/js/main.c32e39ad.chunk.js.map",
     "runtime-main.js": "/react-ecommarce/static/js/runtime-main.80c8143e.js",
     "runtime-main.js.map": "/react-ecommarce/static/js/runtime-main.80c8143e.js.map",
     "static/css/2.300926ef.chunk.css": "/react-ecommarce/static/css/2.300926ef.chunk.css",
@@ -23,6 +23,6 @@
     "static/css/2.300926ef.chunk.css",
     "static/js/2.55476af4.chunk.js",
     "static/css/main.1c017e79.chunk.css",
-    "static/js/main.24379e36.chunk.js"
+    "static/js/main.c32e39ad.chunk.js"
   ]
 }

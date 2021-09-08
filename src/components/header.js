@@ -161,7 +161,8 @@ const Header = () => {
       <li className="nav-item navitem btn-group">
          <div className="dropup">
            <button className=" nav-link btn px-0 py-0 text-dark mb-0 dropdown-toggle" style={{ padding: "0 !important", fontSize: ".6rem"}} onClick={profiledropmob}> 
-           <img src="/img/pic2.jpg" className="rounded-pill mb-2" style={{marginTop:"-10px"}} height="25px" width="25px" alt="" />
+          {userObj().image && <img src="/img/pic2.jpg" className="rounded-pill mb-2" style={{marginTop:"-10px"}} height="25px" width="25px" alt="" />
+          || <span className="bi bi-person-circle"></span>} 
          {`${userObj().name}`}
         </button>
         <ul class="dropdown-menu" id="mprofiledrop" style={{
